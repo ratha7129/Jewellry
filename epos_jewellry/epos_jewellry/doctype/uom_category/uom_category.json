@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:uom_category_name_en",
+ "creation": "2024-06-01 14:06:22.904510",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "uom_category_name_en",
+  "uom_category_name_kh"
+ ],
+ "fields": [
+  {
+   "fieldname": "uom_category_name_en",
+   "fieldtype": "Data",
+   "label": "UOM Category Name EN",
+   "unique": 1
+  },
+  {
+   "fieldname": "uom_category_name_kh",
+   "fieldtype": "Data",
+   "label": "UOM Category Name KH"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-01 14:07:16.029334",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "UOM Category",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

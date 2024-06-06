@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:employee_group_name_en",
+ "creation": "2024-06-03 10:27:22.978425",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "parent_employee_group",
+  "employee_group_name_en",
+  "employee_group_name_kh",
+  "employee_code_prefix",
+  "employee_code_digit",
+  "current_number",
+  "is_group",
+  "lft",
+  "rgt",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_group_name_en",
+   "fieldtype": "Data",
+   "label": "Employee Group Name EN",
+   "unique": 1
+  },
+  {
+   "fieldname": "employee_group_name_kh",
+   "fieldtype": "Data",
+   "label": "Employee Group Name KH"
+  },
+  {
+   "fieldname": "employee_code_prefix",
+   "fieldtype": "Data",
+   "label": "Employee Code Prefix"
+  },
+  {
+   "fieldname": "employee_code_digit",
+   "fieldtype": "Data",
+   "label": "Employee Code Digit"
+  },
+  {
+   "fieldname": "current_number",
+   "fieldtype": "Int",
+   "label": "Current Number"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "Employee Group"
+  },
+  {
+   "fieldname": "parent_employee_group",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Employee Group",
+   "options": "Employee Group"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2024-06-03 10:37:27.220441",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Employee Group",
+ "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_employee_group",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

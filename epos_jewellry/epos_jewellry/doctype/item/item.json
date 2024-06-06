@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:item_code",
+ "creation": "2024-06-01 14:23:23.564444",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "item_category",
+  "item_code",
+  "item_name_en",
+  "item_name_kh",
+  "unit",
+  "disabled",
+  "column_break_yngn",
+  "weight",
+  "cost",
+  "price",
+  "quantity",
+  "allow_discount",
+  "section_break_kjdf",
+  "item_material",
+  "section_break_qnol",
+  "note"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Category",
+   "options": "Item Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "item_name_en",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name EN",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_name_kh",
+   "fieldtype": "Data",
+   "label": "Item Name KH"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Unit",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "label": "Weight"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Cost"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Quantity"
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_discount",
+   "fieldtype": "Check",
+   "label": "Allow Discount"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Long Text",
+   "label": "Note"
+  },
+  {
+   "fieldname": "column_break_yngn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_qnol",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_kjdf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item_material",
+   "fieldtype": "Table",
+   "label": "Item Material",
+   "options": "Item Material",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-01 16:05:16.124629",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Item",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:material_category_name_en",
+ "creation": "2024-06-01 14:09:18.798356",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "parent_material_category",
+  "material_category_name_en",
+  "material_category_name_kh",
+  "material_code_prefix",
+  "material_code_digit",
+  "current_number",
+  "is_group",
+  "lft",
+  "rgt",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "fieldname": "material_category_name_en",
+   "fieldtype": "Data",
+   "label": "Material Category Name EN",
+   "unique": 1
+  },
+  {
+   "fieldname": "material_category_name_kh",
+   "fieldtype": "Data",
+   "label": "Material Category Name KH"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "Material Category"
+  },
+  {
+   "fieldname": "parent_material_category",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Material Category",
+   "options": "Material Category"
+  },
+  {
+   "fieldname": "material_code_digit",
+   "fieldtype": "Data",
+   "label": "Material Code Digit"
+  },
+  {
+   "fieldname": "current_number",
+   "fieldtype": "Int",
+   "label": "Current Number"
+  },
+  {
+   "fieldname": "material_code_prefix",
+   "fieldtype": "Data",
+   "label": "Material Code Prefix"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2024-06-01 15:47:42.608827",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Material Category",
+ "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_material_category",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

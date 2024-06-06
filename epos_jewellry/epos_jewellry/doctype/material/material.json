@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:material_code",
+ "creation": "2024-06-01 14:10:30.989465",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "material_category",
+  "material_code",
+  "material_name",
+  "column_break_kksg",
+  "price",
+  "cost",
+  "unit",
+  "section_break_dzkh",
+  "note"
+ ],
+ "fields": [
+  {
+   "fieldname": "material_category",
+   "fieldtype": "Link",
+   "label": "Material Category",
+   "options": "Material Category"
+  },
+  {
+   "fieldname": "material_code",
+   "fieldtype": "Data",
+   "label": "Material Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "material_name",
+   "fieldtype": "Data",
+   "label": "Material Name"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Cost"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "column_break_kksg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_dzkh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Long Text",
+   "label": "Note"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-01 14:19:10.666654",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Material",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

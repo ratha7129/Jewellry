@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:item_category_name_en",
+ "creation": "2024-06-01 14:17:09.092606",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "parent_item_category",
+  "item_category_name_en",
+  "item_category_name_kh",
+  "item_code_prefix",
+  "item_code_digit",
+  "current_number",
+  "is_group",
+  "lft",
+  "rgt",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_category_name_en",
+   "fieldtype": "Data",
+   "label": "Item Category Name EN",
+   "unique": 1
+  },
+  {
+   "fieldname": "item_category_name_kh",
+   "fieldtype": "Data",
+   "label": "Item Category Name KH"
+  },
+  {
+   "fieldname": "item_code_prefix",
+   "fieldtype": "Data",
+   "label": "Item Code Prefix"
+  },
+  {
+   "fieldname": "item_code_digit",
+   "fieldtype": "Data",
+   "label": "Item Code Digit"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "Item Category"
+  },
+  {
+   "fieldname": "parent_item_category",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Item Category",
+   "options": "Item Category"
+  },
+  {
+   "fieldname": "current_number",
+   "fieldtype": "Int",
+   "label": "Current Number"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2024-06-01 15:41:41.951169",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Item Category",
+ "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_item_category",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

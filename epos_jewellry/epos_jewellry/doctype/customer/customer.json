@@ -1,0 +1,117 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:customer_code",
+ "creation": "2024-06-03 09:55:10.007738",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_group",
+  "customer_code",
+  "customer_name_en",
+  "customer_name_kh",
+  "image",
+  "column_break_nmqt",
+  "phone_1",
+  "phone_2",
+  "date_of_birth",
+  "gender",
+  "email_address",
+  "section_break_fkbc",
+  "address"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_group",
+   "fieldtype": "Link",
+   "label": "Customer Group",
+   "options": "Customer Group"
+  },
+  {
+   "fieldname": "customer_name_en",
+   "fieldtype": "Data",
+   "label": "Customer Name EN"
+  },
+  {
+   "fieldname": "customer_name_kh",
+   "fieldtype": "Data",
+   "label": "Customer Name KH"
+  },
+  {
+   "fieldname": "phone_1",
+   "fieldtype": "Data",
+   "label": "Phone 1"
+  },
+  {
+   "fieldname": "phone_2",
+   "fieldtype": "Data",
+   "label": "Phone 2"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Long Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_nmqt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_code",
+   "fieldtype": "Data",
+   "label": "Customer Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Not Set\nMale\nFemale"
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "label": "Email Address"
+  },
+  {
+   "fieldname": "section_break_fkbc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  }
+ ],
+ "image_field": "image",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-03 10:12:12.458280",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Customer",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

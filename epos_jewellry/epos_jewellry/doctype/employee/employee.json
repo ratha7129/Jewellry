@@ -1,0 +1,104 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:employee_code",
+ "creation": "2024-06-03 10:24:37.961353",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_group",
+  "employee_code",
+  "employee_name_en",
+  "employee_name_kh",
+  "column_break_gmad",
+  "phone_1",
+  "phone_2",
+  "gender",
+  "date_of_birth",
+  "section_break_tfmp",
+  "address"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_code",
+   "fieldtype": "Data",
+   "label": "Employee Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "employee_name_en",
+   "fieldtype": "Data",
+   "label": "Employee Name EN"
+  },
+  {
+   "fieldname": "employee_name_kh",
+   "fieldtype": "Data",
+   "label": "Employee Name KH"
+  },
+  {
+   "fieldname": "column_break_gmad",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "phone_1",
+   "fieldtype": "Data",
+   "label": "Phone 1"
+  },
+  {
+   "fieldname": "phone_2",
+   "fieldtype": "Data",
+   "label": "Phone 2"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Not Set\nMale\nFemale"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "section_break_tfmp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Long Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "employee_group",
+   "fieldtype": "Link",
+   "label": "Employee Group",
+   "options": "Employee Group"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-03 10:38:50.172610",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Employee",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

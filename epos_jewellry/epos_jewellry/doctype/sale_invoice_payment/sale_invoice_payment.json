@@ -1,0 +1,210 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-06-06 11:35:35.493532",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_hgao",
+  "naming_series",
+  "posting_date",
+  "column_break_xtgq",
+  "mode_of_payment",
+  "currency",
+  "amended_from",
+  "section_break_qvzg",
+  "sale_invoice",
+  "sale_invoice_posting_date",
+  "customer",
+  "customer_name",
+  "column_break_pnzt",
+  "total_amount",
+  "paid_amount",
+  "balance",
+  "section_break_wlme",
+  "input_amount",
+  "exchange_rate",
+  "column_break_vjll",
+  "payment_amount",
+  "sale_invoice_balance",
+  "section_break_xnnc",
+  "note"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_hgao",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sale Invoice Payment",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "SIP.YYYY.-.####"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "default": "Cash Dollar",
+   "fieldname": "mode_of_payment",
+   "fieldtype": "Link",
+   "label": "Mode Of Payment",
+   "options": "Mode Of Payment"
+  },
+  {
+   "fetch_from": "mode_of_payment.currency",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "input_amount",
+   "fieldtype": "Float",
+   "label": "Input Amount"
+  },
+  {
+   "default": "0",
+   "fieldname": "payment_amount",
+   "fieldtype": "Currency",
+   "label": "Payment Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xtgq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_wlme",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_vjll",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_qvzg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sale_invoice",
+   "fieldtype": "Link",
+   "label": "Sale Invoice",
+   "options": "Sale Invoice"
+  },
+  {
+   "default": "Today",
+   "fetch_from": "sale_invoice.posting_date",
+   "fieldname": "sale_invoice_posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "sale_invoice.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer.customer_name_en",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pnzt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fetch_from": "sale_invoice.total_amount",
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "sale_invoice.paid_amount",
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "sale_invoice.balance",
+   "fieldname": "balance",
+   "fieldtype": "Currency",
+   "label": "Balance",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "mode_of_payment.exchange_rate",
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate"
+  },
+  {
+   "default": "0",
+   "fieldname": "sale_invoice_balance",
+   "fieldtype": "Currency",
+   "label": "Balance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_xnnc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Long Text",
+   "label": "Note"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-06 16:47:11.910360",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Sale Invoice Payment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

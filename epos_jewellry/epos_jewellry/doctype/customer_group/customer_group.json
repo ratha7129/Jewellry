@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:customer_group_name_en",
+ "creation": "2024-06-03 09:49:49.399907",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "parent_customer_group",
+  "customer_group_name_en",
+  "customer_group_name_kh",
+  "customer_code_prefix",
+  "customer_code_digit",
+  "current_number",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_group_name_en",
+   "fieldtype": "Data",
+   "label": "Customer Group Name EN",
+   "unique": 1
+  },
+  {
+   "fieldname": "customer_group_name_kh",
+   "fieldtype": "Data",
+   "label": "Customer Group Name KH"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "Customer Group"
+  },
+  {
+   "fieldname": "parent_customer_group",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Customer Group",
+   "options": "Customer Group"
+  },
+  {
+   "fieldname": "customer_code_prefix",
+   "fieldtype": "Data",
+   "label": "Customer Code Prefix"
+  },
+  {
+   "fieldname": "customer_code_digit",
+   "fieldtype": "Data",
+   "label": "Customer Code Digit"
+  },
+  {
+   "fieldname": "current_number",
+   "fieldtype": "Int",
+   "label": "Current Number"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2024-06-03 10:08:30.919841",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Customer Group",
+ "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_customer_group",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

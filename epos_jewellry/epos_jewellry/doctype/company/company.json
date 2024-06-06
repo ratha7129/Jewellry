@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-06 09:47:02.586696",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "business_name_en",
+  "business_name_kh",
+  "email_address",
+  "currency",
+  "column_break_ztbl",
+  "phone_1",
+  "phone_2",
+  "address"
+ ],
+ "fields": [
+  {
+   "fieldname": "business_name_en",
+   "fieldtype": "Data",
+   "label": "Business Name EN"
+  },
+  {
+   "fieldname": "business_name_kh",
+   "fieldtype": "Data",
+   "label": "Business Name KH"
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "label": "Email Address"
+  },
+  {
+   "fieldname": "phone_1",
+   "fieldtype": "Data",
+   "label": "Phone 1"
+  },
+  {
+   "fieldname": "phone_2",
+   "fieldtype": "Data",
+   "label": "Phone 2"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Long Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_ztbl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-06-06 10:27:22.614323",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Company",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

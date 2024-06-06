@@ -1,0 +1,312 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-06-03 10:21:24.480826",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_6zab",
+  "naming_series",
+  "customer",
+  "customer_name",
+  "column_break_ggyh",
+  "posting_date",
+  "employee",
+  "employee_name",
+  "amended_from",
+  "status",
+  "section_break_ogmx",
+  "item",
+  "item_name_en",
+  "item_name_kh",
+  "unit",
+  "column_break_insg",
+  "cost",
+  "price",
+  "weight",
+  "allow_discount",
+  "material_section",
+  "sale_invoice_item_material",
+  "section_break_uksj",
+  "discount_type",
+  "column_break_ifvc",
+  "discount_percent",
+  "discount_amount",
+  "section_break_bset",
+  "sub_total",
+  "total_amount",
+  "column_break_emxe",
+  "total_cost",
+  "total_profit",
+  "payment_section",
+  "paid_amount",
+  "column_break_swtj",
+  "balance"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_6zab",
+   "fieldtype": "Section Break",
+   "label": "Info"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sale Invoice",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "SINV.YYYY.-.####"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "customer.customer_name_en",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name_en",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "column_break_ggyh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ogmx",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "section_break_bset",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "default": "0",
+   "fieldname": "sub_total",
+   "fieldtype": "Currency",
+   "label": "Sub Total",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_profit",
+   "fieldtype": "Currency",
+   "label": "Total Profit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_emxe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_uksj",
+   "fieldtype": "Section Break",
+   "label": "Discount"
+  },
+  {
+   "fieldname": "discount_type",
+   "fieldtype": "Select",
+   "label": "Discount Type",
+   "options": "Not Set\nPercent\nAmount"
+  },
+  {
+   "default": "0",
+   "fieldname": "discount_amount",
+   "fieldtype": "Currency",
+   "label": "Discount Amount"
+  },
+  {
+   "default": "0",
+   "fieldname": "discount_percent",
+   "fieldtype": "Float",
+   "label": "Discount Percent"
+  },
+  {
+   "fieldname": "column_break_ifvc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "sale_invoice_item_material",
+   "fieldtype": "Table",
+   "options": "Sale Invoice Item Material"
+  },
+  {
+   "fieldname": "column_break_insg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "material_section",
+   "fieldtype": "Section Break",
+   "label": "Materials"
+  },
+  {
+   "fetch_from": "item.item_name_en",
+   "fieldname": "item_name_en",
+   "fieldtype": "Data",
+   "label": "Item Name EN",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "item.item_name_kh",
+   "fieldname": "item_name_kh",
+   "fieldtype": "Data",
+   "label": "Item Name KH",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "item.weight",
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "label": "Weight",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "item.unit",
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "item.price",
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "item.cost",
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Cost",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nPaid\nPartly Paid\nUnpaid\nCancelled"
+  },
+  {
+   "fieldname": "payment_section",
+   "fieldtype": "Section Break",
+   "label": "Payment"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_swtj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "balance",
+   "fieldtype": "Currency",
+   "label": "Balance",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "item.allow_discount",
+   "fieldname": "allow_discount",
+   "fieldtype": "Check",
+   "label": "Allow Discount",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Sale Invoice Payment",
+   "link_fieldname": "sale_invoice"
+  }
+ ],
+ "modified": "2024-06-06 17:07:29.612569",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Sale Invoice",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
