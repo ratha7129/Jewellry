@@ -9,6 +9,7 @@ frappe.listview_settings['Sale Invoice'] = {
 			"Unpaid": "orange",
 			"Paid": "green",
 			"Partly Paid": "yellow",
+			"Buy Back": "red",
 		};
 		return [__(doc.status), status_colors[doc.status], "status,=,"+doc.status];
 	}

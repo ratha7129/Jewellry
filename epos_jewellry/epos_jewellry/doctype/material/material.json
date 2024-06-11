@@ -9,10 +9,11 @@
   "material_category",
   "material_code",
   "material_name",
+  "unit",
   "column_break_kksg",
   "price",
   "cost",
-  "unit",
+  "qty",
   "section_break_dzkh",
   "note"
  ],
@@ -62,11 +63,21 @@
    "fieldname": "note",
    "fieldtype": "Long Text",
    "label": "Note"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "label": "QTY"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-06-01 14:19:10.666654",
+ "links": [
+  {
+   "link_doctype": "Stock Ledger Entry",
+   "link_fieldname": "item_code"
+  }
+ ],
+ "modified": "2024-06-07 11:50:07.285505",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Material",

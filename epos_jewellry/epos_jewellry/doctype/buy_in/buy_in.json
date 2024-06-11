@@ -1,0 +1,192 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-06-10 16:19:51.608017",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_lbiw",
+  "naming_series",
+  "sale_invoice",
+  "customer",
+  "customer_name",
+  "column_break_wvtk",
+  "posting_date",
+  "employee",
+  "employee_name",
+  "amended_from",
+  "section_break_gwun",
+  "item",
+  "item_name_en",
+  "item_name_kh",
+  "unit",
+  "column_break_eljl",
+  "cost",
+  "price",
+  "weight",
+  "section_break_awmy",
+  "buy_in_material",
+  "section_break_jteu",
+  "note"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_lbiw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Buy In",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "BI.YYYY.-.####"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "customer.customer_name_en",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "column_break_wvtk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name_en",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "section_break_gwun",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "item.item_name_en",
+   "fieldname": "item_name_en",
+   "fieldtype": "Data",
+   "label": "Item Name EN"
+  },
+  {
+   "fetch_from": "item.item_name_kh",
+   "fieldname": "item_name_kh",
+   "fieldtype": "Data",
+   "label": "Item Name KH"
+  },
+  {
+   "fetch_from": "item.unit",
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "column_break_eljl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "item.cost",
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Cost"
+  },
+  {
+   "fetch_from": "item.price",
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price"
+  },
+  {
+   "fetch_from": "item.weight",
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "label": "Weight"
+  },
+  {
+   "fieldname": "section_break_awmy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "buy_in_material",
+   "fieldtype": "Table",
+   "label": "Buy In Material",
+   "options": "Buy In Material"
+  },
+  {
+   "fieldname": "sale_invoice",
+   "fieldtype": "Link",
+   "label": "Sale Invoice",
+   "options": "Sale Invoice"
+  },
+  {
+   "fieldname": "section_break_jteu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Long Text",
+   "label": "Note"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-11 09:50:50.858121",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Buy In",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

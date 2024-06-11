@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-06-07 08:32:54.925611",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_63p4",
+  "naming_series",
+  "ledger_type",
+  "item_code",
+  "column_break_ekya",
+  "posting_date",
+  "voucher_type",
+  "voucher_no",
+  "section_break_cplp",
+  "current_qty",
+  "qty_change",
+  "qty_after_transaction",
+  "column_break_gmkh",
+  "unit",
+  "price",
+  "cost",
+  "section_break_jswr",
+  "note"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_63p4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Dynamic Link",
+   "label": "Item Code",
+   "options": "ledger_type"
+  },
+  {
+   "fieldname": "voucher_type",
+   "fieldtype": "Link",
+   "label": "Voucher Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "voucher_no",
+   "fieldtype": "Dynamic Link",
+   "label": "Voucher No",
+   "options": "voucher_type"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Datetime",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "qty_change",
+   "fieldtype": "Float",
+   "label": "QTY Change"
+  },
+  {
+   "fieldname": "qty_after_transaction",
+   "fieldtype": "Float",
+   "label": "QTY After Transaction"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Cost"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "current_qty",
+   "fieldtype": "Float",
+   "label": "Current QTY"
+  },
+  {
+   "fieldname": "column_break_ekya",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_cplp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_gmkh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_jswr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Long Text",
+   "label": "Note"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "SLE.YYYY.-.####"
+  },
+  {
+   "fieldname": "ledger_type",
+   "fieldtype": "Link",
+   "label": "Ledger Type",
+   "options": "DocType"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-07 11:24:14.535561",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Stock Ledger Entry",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

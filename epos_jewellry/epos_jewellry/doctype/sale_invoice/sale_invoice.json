@@ -28,7 +28,7 @@
   "allow_discount",
   "material_section",
   "sale_invoice_item_material",
-  "section_break_uksj",
+  "section_break_discount",
   "discount_type",
   "column_break_ifvc",
   "discount_percent",
@@ -143,11 +143,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_uksj",
-   "fieldtype": "Section Break",
-   "label": "Discount"
-  },
-  {
    "fieldname": "discount_type",
    "fieldtype": "Select",
    "label": "Discount Type",
@@ -241,7 +236,7 @@
    "fieldtype": "Select",
    "hidden": 1,
    "label": "Status",
-   "options": "Draft\nSubmitted\nPaid\nPartly Paid\nUnpaid\nCancelled"
+   "options": "Draft\nSubmitted\nPaid\nPartly Paid\nUnpaid\nCancelled\nBuy Back"
   },
   {
    "fieldname": "payment_section",
@@ -275,6 +270,11 @@
    "fieldtype": "Check",
    "label": "Allow Discount",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_discount",
+   "fieldtype": "Section Break",
+   "label": "Discount"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -285,7 +285,7 @@
    "link_fieldname": "sale_invoice"
   }
  ],
- "modified": "2024-06-06 17:07:29.612569",
+ "modified": "2024-06-11 08:31:25.875266",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Sale Invoice",

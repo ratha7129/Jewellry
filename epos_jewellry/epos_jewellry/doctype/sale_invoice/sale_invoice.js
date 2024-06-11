@@ -10,7 +10,11 @@ frappe.ui.form.on("Sale Invoice", {
         })
 	},
     refresh(frm){
+        frm.page.btn_secondary.show()
         allow_discount(frm)
+        if(frm.doc.status == "Buy Back"){
+            frm.page.btn_secondary.hide()
+        }
     },
     discount_amount(frm) {
         update_totals(frm)
@@ -39,8 +43,8 @@ frappe.ui.form.on("Sale Invoice", {
                     doc.qty = m.qty
                     doc.total_amount = m.qty * m.price
                     doc.total_cost = m.qty * m.cost
-                    frm.refresh_field("sale_invoice_item_material")
                });
+               frm.refresh_field("sale_invoice_item_material")
             },
             error: function (r) {
                 frappe.throw(_("Load data fail."))

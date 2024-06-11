@@ -16,7 +16,7 @@
   "weight",
   "cost",
   "price",
-  "quantity",
+  "qty",
   "allow_discount",
   "section_break_kjdf",
   "item_material",
@@ -75,11 +75,6 @@
    "label": "Price"
   },
   {
-   "fieldname": "quantity",
-   "fieldtype": "Float",
-   "label": "Quantity"
-  },
-  {
    "default": "1",
    "fieldname": "allow_discount",
    "fieldtype": "Check",
@@ -114,11 +109,21 @@
    "fieldname": "disabled",
    "fieldtype": "Check",
    "label": "Disabled"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "label": "QTY"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-06-01 16:05:16.124629",
+ "links": [
+  {
+   "link_doctype": "Stock Ledger Entry",
+   "link_fieldname": "item_code"
+  }
+ ],
+ "modified": "2024-06-07 10:19:09.482084",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Item",

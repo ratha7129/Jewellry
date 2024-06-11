@@ -9,6 +9,7 @@
   "business_name_kh",
   "email_address",
   "currency",
+  "allow_negative_stock",
   "column_break_ztbl",
   "phone_1",
   "phone_2",
@@ -54,12 +55,18 @@
    "fieldtype": "Link",
    "label": "Default Currency",
    "options": "Currency"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_negative_stock",
+   "fieldtype": "Check",
+   "label": "Allow Negative Stock"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-06-06 10:27:22.614323",
+ "modified": "2024-06-07 09:52:30.820519",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Company",
