@@ -14,6 +14,9 @@ frappe.ui.form.on("Sale Invoice", {
         allow_discount(frm)
         if(frm.doc.status == "Buy Back"){
             frm.page.btn_secondary.hide()
+            frm.add_custom_button(__('Go To Buy In'), function(){
+                frappe.set_route('Form', "Buy In", frm.doc.buy_in_no);
+            }, __("Action"));
         }
     },
     discount_amount(frm) {

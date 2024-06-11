@@ -9,6 +9,7 @@ class BuyIn(Document):
 	def on_submit(self):
 		doc = frappe.get_doc("Sale Invoice",self.sale_invoice)
 		doc.status = "Buy Back"
+		doc.buy_in_no = self.name
 		doc.save()
 
 		add_item_stock_ledger_entry(self)

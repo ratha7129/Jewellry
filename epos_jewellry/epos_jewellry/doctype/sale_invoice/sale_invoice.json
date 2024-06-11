@@ -10,6 +10,7 @@
   "naming_series",
   "customer",
   "customer_name",
+  "buy_in_no",
   "column_break_ggyh",
   "posting_date",
   "employee",
@@ -269,6 +270,14 @@
   {
    "fieldname": "section_break_discount",
    "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.status == \"Buy Back\"",
+   "fieldname": "buy_in_no",
+   "fieldtype": "Data",
+   "label": "Buy In No",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -279,7 +288,7 @@
    "link_fieldname": "sale_invoice"
   }
  ],
- "modified": "2024-06-11 16:37:24.299746",
+ "modified": "2024-06-11 17:20:07.528394",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Sale Invoice",

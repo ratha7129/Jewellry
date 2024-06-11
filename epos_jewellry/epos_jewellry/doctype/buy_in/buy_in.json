@@ -99,42 +99,51 @@
    "fetch_from": "item.item_name_en",
    "fieldname": "item_name_en",
    "fieldtype": "Data",
-   "label": "Item Name EN"
+   "label": "Item Name EN",
+   "read_only": 1
   },
   {
    "fetch_from": "item.item_name_kh",
    "fieldname": "item_name_kh",
    "fieldtype": "Data",
-   "label": "Item Name KH"
+   "label": "Item Name KH",
+   "read_only": 1
   },
   {
    "fetch_from": "item.unit",
    "fieldname": "unit",
    "fieldtype": "Link",
    "label": "Unit",
-   "options": "UOM"
+   "options": "UOM",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_eljl",
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fetch_from": "item.cost",
    "fieldname": "cost",
    "fieldtype": "Currency",
-   "label": "Cost"
+   "label": "Cost",
+   "read_only": 1
   },
   {
+   "default": "0",
    "fetch_from": "item.price",
    "fieldname": "price",
    "fieldtype": "Currency",
-   "label": "Price"
+   "label": "Price",
+   "read_only": 1
   },
   {
+   "default": "0",
    "fetch_from": "item.weight",
    "fieldname": "weight",
    "fieldtype": "Float",
-   "label": "Weight"
+   "label": "Weight",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_awmy",
@@ -165,7 +174,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-11 09:50:50.858121",
+ "modified": "2024-06-11 17:23:23.125956",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Buy In",
