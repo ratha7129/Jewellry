@@ -47,8 +47,7 @@
  "fields": [
   {
    "fieldname": "section_break_6zab",
-   "fieldtype": "Section Break",
-   "label": "Info"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "amended_from",
@@ -102,13 +101,11 @@
   },
   {
    "fieldname": "section_break_ogmx",
-   "fieldtype": "Section Break",
-   "label": "Items"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "section_break_bset",
-   "fieldtype": "Section Break",
-   "label": "Totals"
+   "fieldtype": "Section Break"
   },
   {
    "default": "0",
@@ -181,8 +178,7 @@
   },
   {
    "fieldname": "material_section",
-   "fieldtype": "Section Break",
-   "label": "Materials"
+   "fieldtype": "Section Break"
   },
   {
    "fetch_from": "item.item_name_en",
@@ -240,8 +236,7 @@
   },
   {
    "fieldname": "payment_section",
-   "fieldtype": "Section Break",
-   "label": "Payment"
+   "fieldtype": "Section Break"
   },
   {
    "allow_on_submit": 1,
@@ -273,8 +268,7 @@
   },
   {
    "fieldname": "section_break_discount",
-   "fieldtype": "Section Break",
-   "label": "Discount"
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -285,7 +279,7 @@
    "link_fieldname": "sale_invoice"
   }
  ],
- "modified": "2024-06-11 08:31:25.875266",
+ "modified": "2024-06-11 16:37:24.299746",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Sale Invoice",
