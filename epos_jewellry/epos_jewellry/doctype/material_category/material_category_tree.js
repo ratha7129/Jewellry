@@ -14,6 +14,16 @@ frappe.treeview_settings['Material Category'] = {
             label:__('Material Category Name KH')
         },
         {
+            fieldtype:'Data', 
+            fieldname:'material_code_prefix', 
+            label:__('Material Code Prefix')
+        },
+        {
+            fieldtype:'Data', 
+            fieldname:'material_code_digit', 
+            label:__('Material Code Digit')
+        },
+        {
             fieldtype:'Check', 
             fieldname:'is_group', 
             label:__('Is Group')
