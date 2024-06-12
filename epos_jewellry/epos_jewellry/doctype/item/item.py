@@ -15,7 +15,8 @@ class Item(Document):
 	def before_insert(self):
 		if self.item_code == "" or self.item_code == None:
 			item_category = frappe.get_doc("Item Category",self.item_category)
-			item_category.current_number += 1
-			self.item_code = str(item_category.item_code_prefix) + str(item_category.current_number).zfill(len(item_category.item_code_digit))
-			item_category.save()
+			if item_category.item_code_prefix and item_category.item_code_digit:
+				item_category.current_number += 1
+				self.item_code = str(item_category.item_code_prefix) + str(item_category.current_number).zfill(len(item_category.item_code_digit))
+				item_category.save()
 
