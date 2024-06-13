@@ -15,6 +15,7 @@
   "voucher_type",
   "voucher_no",
   "section_break_cplp",
+  "stock_location",
   "current_qty",
   "qty_change",
   "qty_after_transaction",
@@ -116,11 +117,17 @@
    "fieldtype": "Link",
    "label": "Ledger Type",
    "options": "DocType"
+  },
+  {
+   "fieldname": "stock_location",
+   "fieldtype": "Link",
+   "label": "Stock Location",
+   "options": "Stock Location"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-07 11:24:14.535561",
+ "modified": "2024-06-13 16:20:54.711330",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Stock Ledger Entry",

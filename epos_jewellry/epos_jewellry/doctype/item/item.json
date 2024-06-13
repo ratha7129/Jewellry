@@ -21,7 +21,9 @@
   "section_break_kjdf",
   "item_material",
   "section_break_qnol",
-  "note"
+  "note",
+  "stock_location_item_tab",
+  "item_stock_location"
  ],
  "fields": [
   {
@@ -54,7 +56,6 @@
   {
    "fieldname": "unit",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Unit",
    "options": "UOM",
    "reqd": 1
@@ -72,6 +73,7 @@
   {
    "fieldname": "price",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Price"
   },
   {
@@ -113,17 +115,25 @@
   {
    "fieldname": "qty",
    "fieldtype": "Float",
-   "label": "QTY"
+   "in_list_view": 1,
+   "label": "QTY",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stock_location_item_tab",
+   "fieldtype": "Tab Break",
+   "label": "Stock Location Item"
+  },
+  {
+   "fieldname": "item_stock_location",
+   "fieldtype": "Table",
+   "label": "Stock Location",
+   "options": "Item Stock Location"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [
-  {
-   "link_doctype": "Stock Ledger Entry",
-   "link_fieldname": "item_code"
-  }
- ],
- "modified": "2024-06-07 10:19:09.482084",
+ "links": [],
+ "modified": "2024-06-13 17:20:21.739453",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Item",

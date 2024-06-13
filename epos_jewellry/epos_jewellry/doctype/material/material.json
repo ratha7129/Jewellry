@@ -15,7 +15,9 @@
   "cost",
   "qty",
   "section_break_dzkh",
-  "note"
+  "note",
+  "stock_location_tab",
+  "material_stock_location"
  ],
  "fields": [
   {
@@ -67,17 +69,23 @@
   {
    "fieldname": "qty",
    "fieldtype": "Float",
-   "label": "QTY"
+   "label": "QTY",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stock_location_tab",
+   "fieldtype": "Tab Break",
+   "label": "Stock Location"
+  },
+  {
+   "fieldname": "material_stock_location",
+   "fieldtype": "Table",
+   "options": "Material Stock Location"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [
-  {
-   "link_doctype": "Stock Ledger Entry",
-   "link_fieldname": "item_code"
-  }
- ],
- "modified": "2024-06-07 11:50:07.285505",
+ "links": [],
+ "modified": "2024-06-13 17:20:45.097241",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Material",

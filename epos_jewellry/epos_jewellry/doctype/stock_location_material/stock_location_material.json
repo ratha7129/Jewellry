@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-13 16:34:14.120279",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "material_code",
+  "material_name",
+  "stock_location",
+  "unit",
+  "column_break_qbph",
+  "price",
+  "cost",
+  "qty"
+ ],
+ "fields": [
+  {
+   "fieldname": "material_code",
+   "fieldtype": "Link",
+   "label": "Material Code",
+   "options": "Material",
+   "read_only": 1
+  },
+  {
+   "fieldname": "material_name",
+   "fieldtype": "Data",
+   "label": "Material Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stock_location",
+   "fieldtype": "Link",
+   "label": "Stock Location",
+   "options": "Stock Location",
+   "read_only": 1
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "label": "QTY",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qbph",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-13 16:36:00.180695",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Stock Location Material",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

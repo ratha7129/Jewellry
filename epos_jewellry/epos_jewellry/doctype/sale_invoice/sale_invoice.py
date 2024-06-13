@@ -55,9 +55,10 @@ def add_item_stock_ledger_entry(self):
 					'unit':self.unit,
 					'price':self.price,
 					'cost':self.cost,
-					'current_qty': get_item_current_qty(self.item),
+					'current_qty': get_item_current_qty(self.item,self.stock_location),
 					'qty_change':-1,
-					'qty_after_transaction': get_item_current_qty(self.item)-1,
+					'qty_after_transaction': get_item_current_qty(self.item,self.stock_location)-1,
+					'stock_location':self.stock_location,
 					'note':"New Sale Invoice {}".format(self.name)
 				})
 	else:
@@ -71,9 +72,10 @@ def add_item_stock_ledger_entry(self):
 					'unit':self.unit,
 					'price':self.price,
 					'cost':self.cost,
-					'current_qty': get_item_current_qty(self.item),
+					'current_qty': get_item_current_qty(self.item,self.stock_location),
 					'qty_change':1,
-					'qty_after_transaction': get_item_current_qty(self.item)+1,
+					'qty_after_transaction': get_item_current_qty(self.item,self.stock_location)+1,
+					'stock_location':self.stock_location,
 					'note':"Cancelled Sale Invoice {}".format(self.name)
 				})
 
@@ -90,9 +92,10 @@ def add_material_stock_ledger_entry(self,material):
 					'unit': material.unit,
 					'price': material.price,
 					'cost': material.cost,
-					'current_qty': get_material_current_qty(material.material_code),
+					'current_qty': get_material_current_qty(material.material_code,self.stock_location),
 					'qty_change':-1,
-					'qty_after_transaction': get_material_current_qty(material.material_code)-1,
+					'qty_after_transaction': get_material_current_qty(material.material_code,self.stock_location)-1,
+					'stock_location':self.stock_location,
 					'note':"New Sale Invoice {}".format(self.name)
 				})
 	else:
@@ -106,8 +109,9 @@ def add_material_stock_ledger_entry(self,material):
 					'unit':material.unit,
 					'price':material.price,
 					'cost':material.cost,
-					'current_qty': get_material_current_qty(material.material_code),
+					'current_qty': get_material_current_qty(material.material_code,self.stock_location),
 					'qty_change':1,
-					'qty_after_transaction': get_material_current_qty(material.material_code)+1,
+					'qty_after_transaction': get_material_current_qty(material.material_code,self.stock_location)+1,
+					'stock_location':self.stock_location,
 					'note':"Cancelled Sale Invoice {}".format(self.name)
 				})

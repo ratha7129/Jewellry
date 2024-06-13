@@ -11,6 +11,7 @@
   "customer",
   "customer_name",
   "buy_in_no",
+  "stock_location",
   "column_break_ggyh",
   "posting_date",
   "employee",
@@ -73,6 +74,7 @@
    "label": "Posting Date"
   },
   {
+   "default": "G0001",
    "fieldname": "customer",
    "fieldtype": "Link",
    "label": "Customer",
@@ -85,6 +87,7 @@
    "label": "Customer Name"
   },
   {
+   "default": "G0001",
    "fieldname": "employee",
    "fieldtype": "Link",
    "label": "Employee",
@@ -278,6 +281,12 @@
    "fieldtype": "Data",
    "label": "Buy In No",
    "read_only": 1
+  },
+  {
+   "fieldname": "stock_location",
+   "fieldtype": "Link",
+   "label": "Stock Location",
+   "options": "Stock Location"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -288,7 +297,7 @@
    "link_fieldname": "sale_invoice"
   }
  ],
- "modified": "2024-06-11 17:20:07.528394",
+ "modified": "2024-06-13 16:29:45.286705",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Sale Invoice",

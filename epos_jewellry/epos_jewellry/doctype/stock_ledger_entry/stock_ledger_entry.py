@@ -18,12 +18,8 @@ class StockLedgerEntry(Document):
 				update_qty(self)
 def update_qty(self):
 	if self.ledger_type == 'Item':
-		doc = frappe.get_doc('Item',self.item_code)
-		doc.qty = doc.qty + self.qty_change
-		doc.save()
+		frappe.db.sql("update `tabStock Location Item` set qty = qty + {0} where item_code = '{1}' and stock_location = '{2}'".format(self.qty_change,self.item_code,self.stock_location))
 	elif self.ledger_type == 'Material' :
-		doc = frappe.get_doc('Material',self.item_code)
-		doc.qty = doc.qty + self.qty_change
-		doc.save()
+		frappe.db.sql("update `tabStock Location Material` set qty = qty + {0} where material_code = '{1}' and stock_location = '{2}'".format(self.qty_change,self.item_code,self.stock_location))
 	else:
 		pass
