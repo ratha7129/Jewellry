@@ -7,9 +7,24 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_okk0",
-  "amended_from",
   "naming_series",
-  "posting_date"
+  "posting_date",
+  "amended_from",
+  "column_break_keup",
+  "type",
+  "stock_location",
+  "section_break_plkq",
+  "supplier",
+  "supplier_name",
+  "column_break_sfwk",
+  "phone_1",
+  "phone_2",
+  "section_break_fsux",
+  "stock_in_item",
+  "section_break_hjmy",
+  "total_qty",
+  "column_break_phtv",
+  "total_amount"
  ],
  "fields": [
   {
@@ -29,21 +44,104 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
-   "label": "Naming Series"
+   "label": "Naming Series",
+   "options": "STI.-.YYYY.####"
   },
   {
+   "default": "Today",
    "fieldname": "posting_date",
    "fieldtype": "Date",
    "label": "Posting Date"
+  },
+  {
+   "fieldname": "stock_location",
+   "fieldtype": "Link",
+   "label": "Stock Location",
+   "options": "Stock Location"
+  },
+  {
+   "fieldname": "column_break_keup",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_fsux",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "stock_in_item",
+   "fieldtype": "Table",
+   "options": "Stock In Item"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Item\nMaterial"
+  },
+  {
+   "fieldname": "section_break_hjmy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total QTY",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_phtv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_plkq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fetch_from": "supplier.supplier_name",
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "label": "Supplier Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "supplier.phone_1",
+   "fieldname": "phone_1",
+   "fieldtype": "Data",
+   "label": "Phone 1",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "supplier.phone_2",
+   "fieldname": "phone_2",
+   "fieldtype": "Data",
+   "label": "Phone 2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sfwk",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-13 17:31:11.480201",
+ "modified": "2024-06-14 11:45:01.607276",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Stock In",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

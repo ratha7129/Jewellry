@@ -3,7 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
-
+from epos_jewellry.epos_jewellry.doctype.api import stock_ledger_entry,get_info_by_type
 
 class Item(Document):
 	def on_update(self):
@@ -13,6 +13,7 @@ class Item(Document):
 			doc.cost = a.cost
 			doc.qty = a.qty
 			doc.save()
+			add_stock_ledger_entry(self,a)
 
 	def before_save(self):
 		if self.cost == 0:
@@ -66,3 +67,21 @@ class Item(Document):
 		doc = frappe.db.sql("SELECT item_code,stock_location,unit,qty,cost,price,name FROM `tabStock Location Item` WHERE item_code = '{0}'".format(item.name),as_dict=1)
 		if doc:
 			return doc
+
+def add_stock_ledger_entry(self,item_stock_location):
+	stock_ledger_entry({
+					'doctype': 'Stock Ledger Entry',
+					'voucher_type':"",
+					'voucher_no':self.name,
+					'posting_date':self.posting_date,
+					'ledger_type':'Item',
+					'item_code': self.item,
+					'unit':self.unit,
+					'price':self.price,
+					'cost':self.cost,
+					'current_qty': get_info_by_type("Item",self.item,self.stock_location).qty,
+					'qty_change':-1,
+					'qty_after_transaction': get_info_by_type("Item",self.item,self.stock_location).qty-1,
+					'stock_location':self.stock_location,
+					'note':"New Sale Invoice {}".format(self.name)
+				})

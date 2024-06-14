@@ -3,7 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
-from epos_jewellry.epos_jewellry.doctype.api import stock_ledger_entry,get_item_current_qty,get_material_current_qty
+from epos_jewellry.epos_jewellry.doctype.api import stock_ledger_entry,get_info_by_type
 
 class SaleInvoice(Document):
 	def on_update(self):
@@ -55,9 +55,9 @@ def add_item_stock_ledger_entry(self):
 					'unit':self.unit,
 					'price':self.price,
 					'cost':self.cost,
-					'current_qty': get_item_current_qty(self.item,self.stock_location),
+					'current_qty': get_info_by_type("Item",self.item,self.stock_location).qty,
 					'qty_change':-1,
-					'qty_after_transaction': get_item_current_qty(self.item,self.stock_location)-1,
+					'qty_after_transaction': get_info_by_type("Item",self.item,self.stock_location).qty-1,
 					'stock_location':self.stock_location,
 					'note':"New Sale Invoice {}".format(self.name)
 				})
@@ -72,9 +72,9 @@ def add_item_stock_ledger_entry(self):
 					'unit':self.unit,
 					'price':self.price,
 					'cost':self.cost,
-					'current_qty': get_item_current_qty(self.item,self.stock_location),
+					'current_qty': get_info_by_type("Item",self.item,self.stock_location).qty,
 					'qty_change':1,
-					'qty_after_transaction': get_item_current_qty(self.item,self.stock_location)+1,
+					'qty_after_transaction': get_info_by_type("Item",self.item,self.stock_location).qty+1,
 					'stock_location':self.stock_location,
 					'note':"Cancelled Sale Invoice {}".format(self.name)
 				})
@@ -92,9 +92,9 @@ def add_material_stock_ledger_entry(self,material):
 					'unit': material.unit,
 					'price': material.price,
 					'cost': material.cost,
-					'current_qty': get_material_current_qty(material.material_code,self.stock_location),
+					'current_qty': get_info_by_type("Material",material.material_code,self.stock_location).qty,
 					'qty_change':-1,
-					'qty_after_transaction': get_material_current_qty(material.material_code,self.stock_location)-1,
+					'qty_after_transaction': get_info_by_type("Material",material.material_code,self.stock_location).qty-1,
 					'stock_location':self.stock_location,
 					'note':"New Sale Invoice {}".format(self.name)
 				})
@@ -109,9 +109,9 @@ def add_material_stock_ledger_entry(self,material):
 					'unit':material.unit,
 					'price':material.price,
 					'cost':material.cost,
-					'current_qty': get_material_current_qty(material.material_code,self.stock_location),
+					'current_qty': get_info_by_type("Material",material.material_code,self.stock_location).qty,
 					'qty_change':1,
-					'qty_after_transaction': get_material_current_qty(material.material_code,self.stock_location)+1,
+					'qty_after_transaction': get_info_by_type("Material",material.material_code,self.stock_location).qty+1,
 					'stock_location':self.stock_location,
 					'note':"Cancelled Sale Invoice {}".format(self.name)
 				})

@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-14 16:53:34.050096",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "ftp_backup_path",
+  "ftp_user",
+  "ftp_password",
+  "column_break_nyco",
+  "ftp_url",
+  "ftp_delete_after",
+  "ftp_folder_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "ftp_folder_name",
+   "fieldtype": "Data",
+   "label": "FTP Folder Name"
+  },
+  {
+   "fieldname": "column_break_nyco",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ftp_backup_path",
+   "fieldtype": "Data",
+   "label": "Backup Path"
+  },
+  {
+   "fieldname": "ftp_user",
+   "fieldtype": "Data",
+   "label": "User"
+  },
+  {
+   "fieldname": "ftp_password",
+   "fieldtype": "Password",
+   "label": "Password"
+  },
+  {
+   "fieldname": "ftp_url",
+   "fieldtype": "Data",
+   "label": "Url"
+  },
+  {
+   "fieldname": "ftp_delete_after",
+   "fieldtype": "Int",
+   "label": "Delete After"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-06-14 16:58:00.442270",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "FTP Setting",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
