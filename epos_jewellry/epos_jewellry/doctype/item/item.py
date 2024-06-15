@@ -4,16 +4,11 @@
 import frappe
 from frappe.model.document import Document
 from epos_jewellry.epos_jewellry.doctype.api import stock_ledger_entry,get_info_by_type
+from datetime import datetime
 
 class Item(Document):
 	def on_update(self):
-		for a in self.item_stock_location:
-			doc = frappe.get_doc("Stock Location Item",a.stock_location_item)
-			doc.price = a.price
-			doc.cost = a.cost
-			doc.qty = a.qty
-			doc.save()
-			add_stock_ledger_entry(self,a)
+		add_stock_reconciliation(self)
 
 	def before_save(self):
 		if self.cost == 0:
@@ -68,20 +63,21 @@ class Item(Document):
 		if doc:
 			return doc
 
-def add_stock_ledger_entry(self,item_stock_location):
-	stock_ledger_entry({
-					'doctype': 'Stock Ledger Entry',
-					'voucher_type':"",
-					'voucher_no':self.name,
-					'posting_date':self.posting_date,
-					'ledger_type':'Item',
-					'item_code': self.item,
-					'unit':self.unit,
-					'price':self.price,
-					'cost':self.cost,
-					'current_qty': get_info_by_type("Item",self.item,self.stock_location).qty,
-					'qty_change':-1,
-					'qty_after_transaction': get_info_by_type("Item",self.item,self.stock_location).qty-1,
-					'stock_location':self.stock_location,
-					'note':"New Sale Invoice {}".format(self.name)
-				})
+def add_stock_reconciliation(self):
+	for item in self.item_stock_location:
+		parent = frappe.new_doc("Stock Reconciliation")
+		parent.posting_date = datetime.today().strftime('%Y-%m-%d')
+		parent.type = "Item"
+		parent.stock_location = item.stock_location
+		parent.append("stock_reconciliation_item",{
+		'item_code' : self.name,
+		'tem_name' : self.item_name_en,
+		'stock_location' : item.stock_location,
+		'unit' : item.unit,
+		'price' : item.price,
+		'cost' : item.cost,
+		'qty' : item.qty,
+		'current_qty': get_info_by_type("Item",self.name,item.stock_location).qty,
+		'current_cost' : get_info_by_type("Item",self.name,item.stock_location).cost})
+		parent.docstatus=1
+		parent.save()

@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class StockInItem(Document):
+class StockEntryItem(Document):
 	pass

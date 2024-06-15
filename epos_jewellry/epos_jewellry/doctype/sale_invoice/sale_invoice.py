@@ -93,8 +93,8 @@ def add_material_stock_ledger_entry(self,material):
 					'price': material.price,
 					'cost': material.cost,
 					'current_qty': get_info_by_type("Material",material.material_code,self.stock_location).qty,
-					'qty_change':-1,
-					'qty_after_transaction': get_info_by_type("Material",material.material_code,self.stock_location).qty-1,
+					'qty_change':material.qty*-1,
+					'qty_after_transaction': get_info_by_type("Material",material.material_code,self.stock_location).qty + (material.qty*-1),
 					'stock_location':self.stock_location,
 					'note':"New Sale Invoice {}".format(self.name)
 				})
@@ -110,8 +110,8 @@ def add_material_stock_ledger_entry(self,material):
 					'price':material.price,
 					'cost':material.cost,
 					'current_qty': get_info_by_type("Material",material.material_code,self.stock_location).qty,
-					'qty_change':1,
-					'qty_after_transaction': get_info_by_type("Material",material.material_code,self.stock_location).qty+1,
+					'qty_change':material.qty,
+					'qty_after_transaction': get_info_by_type("Material",material.material_code,self.stock_location).qty + material.qty,
 					'stock_location':self.stock_location,
 					'note':"Cancelled Sale Invoice {}".format(self.name)
 				})

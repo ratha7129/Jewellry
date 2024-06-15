@@ -14,7 +14,8 @@
   "price",
   "qty",
   "cost",
-  "total_cost"
+  "total_cost",
+  "total_amount"
  ],
  "fields": [
   {
@@ -69,15 +70,21 @@
    "fieldname": "price",
    "fieldtype": "Currency",
    "label": "Price"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-14 14:10:26.745930",
+ "modified": "2024-06-15 09:26:51.153335",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
- "name": "Stock In Item",
+ "name": "Stock Entry Item",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",

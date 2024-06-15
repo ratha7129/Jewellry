@@ -9,10 +9,12 @@
   "section_break_okk0",
   "naming_series",
   "posting_date",
+  "stock_entry_type",
   "amended_from",
   "column_break_keup",
   "type",
-  "stock_location",
+  "from_stock_location",
+  "to_stock_location",
   "section_break_plkq",
   "supplier",
   "supplier_name",
@@ -20,10 +22,12 @@
   "phone_1",
   "phone_2",
   "section_break_fsux",
-  "stock_in_item",
+  "stock_entry_item",
   "section_break_hjmy",
+  "total_item",
   "total_qty",
   "column_break_phtv",
+  "total_cost",
   "total_amount"
  ],
  "fields": [
@@ -36,7 +40,7 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Stock In",
+   "options": "Stock Entry",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
@@ -45,7 +49,7 @@
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Naming Series",
-   "options": "STI.-.YYYY.####"
+   "options": "STE.-.YYYY.####"
   },
   {
    "default": "Today",
@@ -54,23 +58,12 @@
    "label": "Posting Date"
   },
   {
-   "fieldname": "stock_location",
-   "fieldtype": "Link",
-   "label": "Stock Location",
-   "options": "Stock Location"
-  },
-  {
    "fieldname": "column_break_keup",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "section_break_fsux",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "stock_in_item",
-   "fieldtype": "Table",
-   "options": "Stock In Item"
   },
   {
    "fieldname": "type",
@@ -132,15 +125,51 @@
   {
    "fieldname": "column_break_sfwk",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stock_entry_type",
+   "fieldtype": "Select",
+   "label": "Stock Entry Type",
+   "options": "Stock In\nStock Take\nStock Transfer"
+  },
+  {
+   "fieldname": "from_stock_location",
+   "fieldtype": "Link",
+   "label": "From Stock Location",
+   "options": "Stock Location"
+  },
+  {
+   "depends_on": "eval:doc.stock_entry_type == \"Stock Transfer\"",
+   "fieldname": "to_stock_location",
+   "fieldtype": "Link",
+   "label": "To Stock Location",
+   "options": "Stock Location"
+  },
+  {
+   "fieldname": "stock_entry_item",
+   "fieldtype": "Table",
+   "options": "Stock Entry Item"
+  },
+  {
+   "fieldname": "total_item",
+   "fieldtype": "Int",
+   "label": "Total Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-14 11:45:01.607276",
+ "modified": "2024-06-15 09:29:12.852484",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
- "name": "Stock In",
+ "name": "Stock Entry",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [

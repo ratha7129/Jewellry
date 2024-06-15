@@ -1,12 +1,24 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:",
  "creation": "2024-06-14 17:36:09.022198",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_ckok",
-  "amended_from"
+  "naming_series",
+  "posting_date",
+  "amended_from",
+  "column_break_zafu",
+  "type",
+  "stock_location",
+  "section_break_ypxp",
+  "stock_reconciliation_item",
+  "section_break_wczu",
+  "total_qty_change",
+  "column_break_cuaw",
+  "total_amount_change"
  ],
  "fields": [
   {
@@ -22,15 +34,73 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "SRE.YYYY.-.####"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "column_break_zafu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Item\nMaterial"
+  },
+  {
+   "fieldname": "stock_location",
+   "fieldtype": "Link",
+   "label": "Stock Location",
+   "options": "Stock Location"
+  },
+  {
+   "fieldname": "section_break_ypxp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "stock_reconciliation_item",
+   "fieldtype": "Table",
+   "options": "Stock Reconciliation Item"
+  },
+  {
+   "fieldname": "section_break_wczu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_qty_change",
+   "fieldtype": "Float",
+   "label": "Total QTY Change",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_amount_change",
+   "fieldtype": "Currency",
+   "label": "Total Amount Change",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_cuaw",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-14 17:36:13.557496",
+ "modified": "2024-06-15 10:34:38.010489",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Stock Reconciliation",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
