@@ -17,6 +17,11 @@ class StockEntry(Document):
 			if self.type == "Item":
 				for a in self.stock_entry_item:
 					add_item_stock_ledger_entry(self,a,self.stock_entry_type,self.from_stock_location)
+					if self.stock_in_material == 1:
+						doc = frappe.db.sql("select material_code item_code,unit,price,cost,qty from `tabItem Material` where parent = '{0}'".format(a.item_code),as_dict=1)
+						for b in doc:
+							b.qty = b.qty * a.qty
+							add_material_stock_ledger_entry(self,b,self.stock_entry_type,self.from_stock_location)
 			else:
 				for a in self.stock_entry_item:
 					add_material_stock_ledger_entry(self,a,self.stock_entry_type,self.from_stock_location)
@@ -58,6 +63,7 @@ def get_name_by_type(type,name):
 	else:
 		doc = frappe.get_doc("Material",name)
 		return doc.material_name or ""
+
 
 def add_item_stock_ledger_entry(self,item,stock_entry_type,stock_location):
 	if self.docstatus == 1:

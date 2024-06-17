@@ -15,6 +15,7 @@
   "type",
   "from_stock_location",
   "to_stock_location",
+  "stock_in_material",
   "section_break_plkq",
   "supplier",
   "supplier_name",
@@ -161,12 +162,19 @@
    "fieldtype": "Currency",
    "label": "Total Cost",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.stock_entry_type == \"Stock In\" && doc.type == \"Item\"",
+   "fieldname": "stock_in_material",
+   "fieldtype": "Check",
+   "label": "Stock In Material"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-15 09:29:12.852484",
+ "modified": "2024-06-17 17:10:06.576152",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Stock Entry",
