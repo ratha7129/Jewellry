@@ -1,0 +1,254 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-06-18 08:37:40.519824",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "jeweller",
+  "jeweller_name",
+  "column_break_xnwo",
+  "posting_date",
+  "stock_location",
+  "section_break_estl",
+  "processing_out_material",
+  "section_break_izql",
+  "column_break_wcvn",
+  "t_total_qty",
+  "column_break_zskq",
+  "t_total_cost",
+  "column_break_ayte",
+  "t_total_amount",
+  "section_break_wryq",
+  "processing_leftover_material",
+  "section_break_vtoe",
+  "l_total_qty",
+  "column_break_xrlg",
+  "l_total_cost",
+  "column_break_apim",
+  "l_total_amount",
+  "section_break_rkjy",
+  "processing_item",
+  "section_break_bsaq",
+  "i_total_qty",
+  "total_commission",
+  "column_break_lrgh",
+  "i_total_cost",
+  "column_break_dlew",
+  "i_total_amount",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "jeweller",
+   "fieldtype": "Link",
+   "label": "Jeweller",
+   "options": "Jeweller"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "JP.YYYY.-.####"
+  },
+  {
+   "fieldname": "column_break_xnwo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "jeweller.jeweller_name_en",
+   "fieldname": "jeweller_name",
+   "fieldtype": "Data",
+   "label": "Jeweller Name"
+  },
+  {
+   "fieldname": "section_break_estl",
+   "fieldtype": "Section Break",
+   "label": "Material Take"
+  },
+  {
+   "fieldname": "processing_out_material",
+   "fieldtype": "Table",
+   "options": "Processing Out Material"
+  },
+  {
+   "fieldname": "section_break_wryq",
+   "fieldtype": "Section Break",
+   "label": "Material Leftover"
+  },
+  {
+   "fieldname": "processing_leftover_material",
+   "fieldtype": "Table",
+   "options": "Processing Leftover Material"
+  },
+  {
+   "fieldname": "section_break_rkjy",
+   "fieldtype": "Section Break",
+   "label": "Finish Item"
+  },
+  {
+   "fieldname": "processing_item",
+   "fieldtype": "Table",
+   "options": "Processing Item"
+  },
+  {
+   "fieldname": "section_break_izql",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_zskq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ayte",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wcvn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "t_total_qty",
+   "fieldtype": "Float",
+   "label": "Total QTY",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "t_total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "t_total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_vtoe",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "l_total_qty",
+   "fieldtype": "Float",
+   "label": "Total QTY",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xrlg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "l_total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_apim",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "l_total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_bsaq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "i_total_qty",
+   "fieldtype": "Float",
+   "label": "Total QTY",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_lrgh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "i_total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dlew",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "i_total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stock_location",
+   "fieldtype": "Link",
+   "label": "Stock Location",
+   "options": "Stock Location"
+  },
+  {
+   "fieldname": "total_commission",
+   "fieldtype": "Currency",
+   "label": "Total Commission",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Jewellry Processing",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-18 17:11:15.681933",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Jewellry Processing",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
