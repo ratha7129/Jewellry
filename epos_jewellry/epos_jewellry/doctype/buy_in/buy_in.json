@@ -15,6 +15,7 @@
   "posting_date",
   "employee",
   "employee_name",
+  "stock_location",
   "amended_from",
   "section_break_gwun",
   "item",
@@ -169,12 +170,18 @@
    "fieldname": "note",
    "fieldtype": "Long Text",
    "label": "Note"
+  },
+  {
+   "fieldname": "stock_location",
+   "fieldtype": "Link",
+   "label": "Stock Location",
+   "options": "Stock Location"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-11 17:23:23.125956",
+ "modified": "2024-06-19 17:22:51.674023",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Buy In",
