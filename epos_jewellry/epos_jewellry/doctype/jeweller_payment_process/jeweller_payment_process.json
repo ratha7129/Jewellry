@@ -26,6 +26,7 @@
    "read_only": 1
   },
   {
+   "default": "0",
    "fieldname": "input_amount",
    "fieldtype": "Float",
    "label": "Input Amount"
@@ -46,7 +47,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-20 10:56:47.323588",
+ "modified": "2024-06-20 14:37:45.409256",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Jeweller Payment Process",
