@@ -13,7 +13,25 @@ class JewellryProcessing(Document):
 			add_material_stock_ledger_entry(self,a,"Stock In",self.stock_location)
 		for a in self.processing_item:
 			add_item_stock_ledger_entry(self,a,"Stock In",self.stock_location)
+		
+		doc = frappe.get_doc("Jeweller",self.jeweller)
+		doc.total_fee = doc.total_fee + self.total_fee
+		doc.balance = doc.total_fee - doc.total_paid
+		doc.save()
 
+
+	def on_cancel(self):
+		for a in self.processing_out_material:
+			add_material_stock_ledger_entry(self,a,"Stock Take",self.stock_location)
+		for a in self.processing_leftover_material:
+			add_material_stock_ledger_entry(self,a,"Stock In",self.stock_location)
+		for a in self.processing_item:
+			add_item_stock_ledger_entry(self,a,"Stock In",self.stock_location)
+
+		doc = frappe.get_doc("Jeweller",self.jeweller)
+		doc.total_fee = doc.total_fee - self.total_fee
+		doc.balance = doc.total_fee + doc.total_paid
+		doc.save()
 
 
 def add_item_stock_ledger_entry(self,item,stock_entry_type,stock_location):

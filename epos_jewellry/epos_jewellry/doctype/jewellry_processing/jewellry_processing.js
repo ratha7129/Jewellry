@@ -38,6 +38,9 @@ frappe.ui.form.on("Processing Out Material", {
 });
 
 frappe.ui.form.on("Processing Leftover Material", {
+    processing_leftover_material_remove(frm,cdt,cdn){
+        update_totals(frm)
+    },
 	qty(frm,cdt,cdn) {
         let doc = locals[cdt][cdn];
         doc.total_cost = doc.qty*doc.cost
@@ -68,10 +71,14 @@ frappe.ui.form.on("Processing Leftover Material", {
 });
 
 frappe.ui.form.on("Processing Item", {
+    processing_item_remove(frm,cdt,cdn){
+        update_totals(frm)
+    },
 	qty(frm,cdt,cdn) {
         let doc = locals[cdt][cdn];
         doc.total_cost = doc.qty*doc.cost
         doc.total_amount = doc.qty*doc.price
+        doc.total_fee = doc.fee * doc.qty
         update_totals(frm)
 	},
     item_code(frm,cdt,cdn){
@@ -94,9 +101,9 @@ frappe.ui.form.on("Processing Item", {
             }
         });
     },
-    commission_amount(frm,cdt,cdn){
+    fee(frm,cdt,cdn){
         let doc = locals[cdt][cdn];
-        doc.total_commission = doc.commission_amount * doc.qty
+        doc.total_fee = doc.fee * doc.qty
         frm.refresh_field("processing_item")
         update_totals(frm)
     }
@@ -121,8 +128,8 @@ function update_totals(frm){
         frm.set_value("i_total_qty",frm.doc.processing_item.reduce((a, i) => a + i.qty, 0)) 
         frm.set_value("i_total_cost",frm.doc.processing_item.reduce((a, i) => a + i.total_cost, 0)) 
         frm.set_value("i_total_amount",frm.doc.processing_item.reduce((a, i) => a + i.total_amount, 0)) 
-        frm.set_value("total_commission",frm.doc.processing_item.reduce((a, i) => a + i.total_commission, 0)) 
+        frm.set_value("total_fee",frm.doc.processing_item.reduce((a, i) => a + i.total_fee, 0)) 
+        frm.set_value("balance",frm.doc.processing_item.reduce((a, i) => a + i.total_fee, 0)) 
         frm.refresh_field("processing_item")
     }
-   
 }

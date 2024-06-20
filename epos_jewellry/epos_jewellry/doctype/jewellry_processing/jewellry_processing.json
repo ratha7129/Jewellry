@@ -12,6 +12,7 @@
   "column_break_xnwo",
   "posting_date",
   "stock_location",
+  "amended_from",
   "section_break_estl",
   "processing_out_material",
   "section_break_izql",
@@ -33,19 +34,22 @@
   "processing_item",
   "section_break_bsaq",
   "i_total_qty",
-  "total_commission",
+  "total_fee",
   "column_break_lrgh",
   "i_total_cost",
+  "total_payment",
   "column_break_dlew",
   "i_total_amount",
-  "amended_from"
+  "balance"
  ],
  "fields": [
   {
    "fieldname": "jeweller",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Jeweller",
-   "options": "Jeweller"
+   "options": "Jeweller",
+   "reqd": 1
   },
   {
    "default": "Today",
@@ -205,14 +209,10 @@
   {
    "fieldname": "stock_location",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Stock Location",
-   "options": "Stock Location"
-  },
-  {
-   "fieldname": "total_commission",
-   "fieldtype": "Currency",
-   "label": "Total Commission",
-   "read_only": 1
+   "options": "Stock Location",
+   "reqd": 1
   },
   {
    "fieldname": "amended_from",
@@ -223,12 +223,34 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "total_fee",
+   "fieldtype": "Currency",
+   "label": "Total Fee",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "total_payment",
+   "fieldtype": "Currency",
+   "label": "Total Payment",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "balance",
+   "fieldtype": "Currency",
+   "label": "Balance",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-18 17:11:15.681933",
+ "modified": "2024-06-20 11:48:40.374805",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Jewellry Processing",

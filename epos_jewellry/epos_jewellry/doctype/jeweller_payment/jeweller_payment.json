@@ -1,0 +1,171 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-06-20 09:04:54.277500",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_mqia",
+  "naming_series",
+  "posting_date",
+  "jeweller",
+  "jeweller_name",
+  "column_break_xckk",
+  "mode_of_payment",
+  "currency",
+  "exchange_rate",
+  "amended_from",
+  "section_break_hpor",
+  "jeweller_payment_process",
+  "section_break_irdo",
+  "total_fee",
+  "column_break_pgzj",
+  "total_payment",
+  "column_break_imca",
+  "balance"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_mqia",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Jeweller Payment",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "JP.YYYY.-.####s"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "default": "Cash Dollar",
+   "fieldname": "mode_of_payment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Mode Of Payment",
+   "options": "Mode Of Payment",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "mode_of_payment.currency",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Currency",
+   "options": "Currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "mode_of_payment.exchange_rate",
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xckk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_hpor",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_irdo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_fee",
+   "fieldtype": "Currency",
+   "label": "Total Fee",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pgzj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_payment",
+   "fieldtype": "Currency",
+   "label": "Total Payment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_imca",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "balance",
+   "fieldtype": "Currency",
+   "label": "Balance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "jeweller_payment_process",
+   "fieldtype": "Table",
+   "options": "Jeweller Payment Process",
+   "reqd": 1
+  },
+  {
+   "fieldname": "jeweller",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Jeweller",
+   "options": "Jeweller",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "jeweller.jeweller_name_en",
+   "fieldname": "jeweller_name",
+   "fieldtype": "Data",
+   "label": "Jeweller Name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-20 11:47:58.573819",
+ "modified_by": "Administrator",
+ "module": "epos_jewellry",
+ "name": "Jeweller Payment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

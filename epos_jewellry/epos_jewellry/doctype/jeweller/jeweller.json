@@ -12,7 +12,7 @@
   "phone_1",
   "phone_2",
   "column_break_bbpy",
-  "total_amount",
+  "total_fee",
   "total_paid",
   "balance",
   "section_break_ijzd",
@@ -50,13 +50,6 @@
   },
   {
    "default": "0",
-   "fieldname": "total_amount",
-   "fieldtype": "Currency",
-   "label": "Total Amount",
-   "read_only": 1
-  },
-  {
-   "default": "0",
    "fieldname": "total_paid",
    "fieldtype": "Currency",
    "label": "Total Paid",
@@ -78,11 +71,18 @@
   {
    "fieldname": "section_break_ijzd",
    "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_fee",
+   "fieldtype": "Currency",
+   "label": "Total Fee",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-18 08:35:18.618120",
+ "modified": "2024-06-20 08:57:25.168002",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Jeweller",

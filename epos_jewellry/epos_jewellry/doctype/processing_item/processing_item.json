@@ -16,9 +16,9 @@
   "total_cost",
   "total_amount",
   "section_break_ajys",
-  "commission_amount",
+  "fee",
   "column_break_tygq",
-  "total_commission"
+  "total_fee"
  ],
  "fields": [
   {
@@ -78,24 +78,27 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "commission_amount",
-   "fieldtype": "Currency",
-   "label": "Commission Amount"
-  },
-  {
    "fieldname": "column_break_tygq",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "total_commission",
+   "default": "0",
+   "fieldname": "fee",
    "fieldtype": "Currency",
-   "label": "Total Commission"
+   "label": "Fee"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_fee",
+   "fieldtype": "Currency",
+   "label": "Total Fee",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-18 17:00:41.639955",
+ "modified": "2024-06-20 08:35:42.165758",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Processing Item",
