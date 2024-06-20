@@ -6,23 +6,17 @@ from frappe.model.document import Document
 
 
 class JewellerPayment(Document):
-	def before_insert(self):
-		if self.is_new():
-			for a in self.jeweller_payment_process:
-				p = frappe.get_doc("Jewellry Processing",a.processing)
-				a.total_fee = p.balance
-				a.input_amount = a.total_fee * self.exchange_rate
-				a.total_payment = a.total_fee
-				a.balance = a.total_fee - a.total_payment
-			self.total_fee = sum(i.total_fee for i in self.jeweller_payment_process) 
-			self.total_payment = sum(i.total_payment for i in self.jeweller_payment_process) 
-			self.balance = sum(i.balance for i in self.jeweller_payment_process)
 
 	def validate(self):
 		for a in self.jeweller_payment_process:
 			p = frappe.get_doc("Jewellry Processing",a.processing)
 			if p.balance <= 0:
 				frappe.throw("Process {0} already paid".format(p.name))
+			if a.total_payment > p.balance:
+				a.total_fee =  p.balance
+				a.input_amount =  p.balance * self.exchange_rate
+				a.total_payment =  p.balance
+				a.balance = 0
 
 
 	def on_submit(self):
@@ -36,7 +30,7 @@ class JewellerPayment(Document):
 			p.total_payment = p.total_payment + a.total_payment
 			p.balance = p.total_fee - p.total_payment
 			p.save()
-			
+
 	def on_cancel(self):
 		doc = frappe.get_doc("Jeweller",self.jeweller)
 		doc.total_paid = doc.total_paid - self.total_payment
