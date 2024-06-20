@@ -10,10 +10,11 @@ class JewellerPayment(Document):
 	def validate(self):
 		for a in self.jeweller_payment_process:
 			p = frappe.get_doc("Jewellry Processing",a.processing)
+			a.total_fee =  p.balance
+			a.balance = a.total_fee - a.total_payment
 			if p.balance <= 0:
 				frappe.throw("Process {0} already paid".format(p.name))
 			if a.total_payment > p.balance:
-				a.total_fee =  p.balance
 				a.input_amount =  p.balance * self.exchange_rate
 				a.total_payment =  p.balance
 				a.balance = 0
@@ -34,13 +35,13 @@ class JewellerPayment(Document):
 	def on_cancel(self):
 		doc = frappe.get_doc("Jeweller",self.jeweller)
 		doc.total_paid = doc.total_paid - self.total_payment
-		doc.balance = doc.total_fee + doc.total_paid
+		doc.balance = doc.balance + self.total_payment
 		doc.save()
 
 		for a in self.jeweller_payment_process:
 			p = frappe.get_doc("Jewellry Processing",a.processing)
 			p.total_payment = p.total_payment - a.total_payment
-			p.balance = p.total_fee + p.total_payment
+			p.balance = p.balance + a.total_payment
 			p.save()
 
 	@frappe.whitelist()
