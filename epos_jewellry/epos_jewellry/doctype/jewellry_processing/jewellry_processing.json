@@ -225,6 +225,7 @@
    "search_index": 1
   },
   {
+   "default": "0",
    "fieldname": "total_fee",
    "fieldtype": "Currency",
    "label": "Total Fee",
@@ -250,7 +251,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-20 11:48:40.374805",
+ "modified": "2024-06-20 14:03:10.270895",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Jewellry Processing",
