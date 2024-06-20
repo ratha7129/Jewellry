@@ -43,3 +43,8 @@ class JewellerPayment(Document):
 	def get_jeweller_processing(self):
 		docs = frappe.db.sql("select name,total_fee,balance,total_payment from `tabJewellry Processing` where jeweller = '{0}' and docstatus=1 and balance > 0".format(self.jeweller),as_dict=1)
 		return docs
+	
+@frappe.whitelist()
+def get_jeweller_processing_by_name(name):
+	doc = frappe.get_doc("Jewellry Processing",name)
+	return doc

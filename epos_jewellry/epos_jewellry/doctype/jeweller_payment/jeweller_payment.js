@@ -3,12 +3,14 @@
 
 frappe.ui.form.on("Jeweller Payment", {
     mode_of_payment(frm){
-        frm.doc.jeweller_payment_process.forEach(doc => {
-            doc.input_amount = doc.total_fee * frm.doc.exchange_rate
-            doc.total_payment = doc.total_fee
-            doc.balance = doc.total_fee - doc.total_payment
-            update_total(frm)
-        });
+        if(frm.doc.jeweller_payment_process){
+            frm.doc.jeweller_payment_process.forEach(doc => {
+                doc.input_amount = doc.total_fee * frm.doc.exchange_rate
+                doc.total_payment = doc.total_fee
+                doc.balance = doc.total_fee - doc.total_payment
+                update_total(frm)
+            });
+        }
     },
     refresh(frm) {
         frm.fields_dict['jeweller_payment_process'].grid.get_field('processing').get_query = function(doc, cdt, cdn) {
@@ -46,8 +48,30 @@ frappe.ui.form.on("Jeweller Payment", {
 });
 
 frappe.ui.form.on("Jeweller Payment Process", {
+    jeweller_payment_process_remove(frm,cdt,cdn){
+        update_total(frm)
+    },
 	processing(frm,cdt,cdn){
         let doc = locals[cdt][cdn];
+        frappe.call({
+            method: "epos_jewellry.epos_jewellry.doctype.jeweller_payment.jeweller_payment.get_jeweller_processing_by_name",
+            args: {
+                name:doc.processing
+            },
+            callback: function (r) {
+                m = r.message
+                doc.processing = m.name
+                doc.total_fee = m.balance
+                doc.input_amount = doc.total_fee * frm.doc.exchange_rate
+                doc.total_payment = doc.total_fee
+                doc.balance = doc.total_fee - doc.total_payment
+                frm.refresh_field("jeweller_payment_process")
+                update_total(frm)
+            },
+            error: function (r) {
+                frappe.throw(_("Load data fail."))
+            },
+        });
         update_total(frm)
     },
     input_amount(frm,cdt,cdn){
