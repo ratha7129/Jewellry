@@ -31,6 +31,7 @@
   "column_break_apim",
   "l_total_amount",
   "section_break_rkjy",
+  "stock_in_material",
   "processing_item",
   "section_break_bsaq",
   "i_total_qty",
@@ -246,12 +247,18 @@
    "fieldtype": "Currency",
    "label": "Balance",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "stock_in_material",
+   "fieldtype": "Check",
+   "label": "Stock In Material"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-20 14:03:10.270895",
+ "modified": "2024-06-21 09:08:11.536531",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Jewellry Processing",

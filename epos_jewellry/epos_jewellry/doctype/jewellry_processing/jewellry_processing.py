@@ -13,6 +13,11 @@ class JewellryProcessing(Document):
 			add_material_stock_ledger_entry(self,a,"Stock In",self.stock_location)
 		for a in self.processing_item:
 			add_item_stock_ledger_entry(self,a,"Stock In",self.stock_location)
+			if self.stock_in_material == 1:
+						doc = frappe.db.sql("select material_code item_code,unit,price,cost,qty from `tabItem Material` where parent = '{0}'".format(a.item_code),as_dict=1)
+						for b in doc:
+							b.qty = b.qty * a.qty
+							add_material_stock_ledger_entry(self,b,"Stock In",self.stock_location)
 		
 		doc = frappe.get_doc("Jeweller",self.jeweller)
 		doc.total_fee = doc.total_fee + self.total_fee
