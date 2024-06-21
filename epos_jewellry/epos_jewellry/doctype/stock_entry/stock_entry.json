@@ -93,6 +93,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.stock_entry_type == \"Stock In\"",
    "fieldname": "section_break_plkq",
    "fieldtype": "Section Break"
   },
@@ -174,7 +175,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-17 17:10:06.576152",
+ "modified": "2024-06-21 09:01:35.630507",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Stock Entry",
