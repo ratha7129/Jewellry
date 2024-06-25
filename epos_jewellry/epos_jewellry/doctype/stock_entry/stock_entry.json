@@ -50,7 +50,7 @@
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Naming Series",
-   "options": "STE.-.YYYY.####"
+   "options": "STE.YYYY.####"
   },
   {
    "default": "Today",
@@ -177,7 +177,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-25 10:24:20.745630",
+ "modified": "2024-06-25 16:02:43.822766",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Stock Entry",
