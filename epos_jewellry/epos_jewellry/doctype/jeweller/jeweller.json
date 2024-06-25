@@ -22,7 +22,9 @@
   {
    "fieldname": "jeweller_name_en",
    "fieldtype": "Data",
-   "label": "Jeweller Name EN"
+   "in_list_view": 1,
+   "label": "Jeweller Name EN",
+   "reqd": 1
   },
   {
    "fieldname": "jeweller_name_kh",
@@ -87,7 +89,7 @@
    "link_fieldname": "jeweller"
   }
  ],
- "modified": "2024-06-21 09:26:35.967958",
+ "modified": "2024-06-25 10:21:03.579694",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Jeweller",

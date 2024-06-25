@@ -28,6 +28,7 @@
   "price",
   "weight",
   "allow_discount",
+  "no_material",
   "material_section",
   "sale_invoice_item_material",
   "section_break_discount",
@@ -71,14 +72,18 @@
    "default": "Today",
    "fieldname": "posting_date",
    "fieldtype": "Date",
-   "label": "Posting Date"
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
   },
   {
    "default": "G0001",
    "fieldname": "customer",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Customer",
-   "options": "Customer"
+   "options": "Customer",
+   "reqd": 1
   },
   {
    "fetch_from": "customer.customer_name_en",
@@ -168,8 +173,10 @@
   {
    "fieldname": "item",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Item",
-   "options": "Item"
+   "options": "Item",
+   "reqd": 1
   },
   {
    "fieldname": "sale_invoice_item_material",
@@ -181,6 +188,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.no_material == false",
    "fieldname": "material_section",
    "fieldtype": "Section Break"
   },
@@ -285,8 +293,18 @@
   {
    "fieldname": "stock_location",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Stock Location",
-   "options": "Stock Location"
+   "options": "Stock Location",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "item.no_material",
+   "fieldname": "no_material",
+   "fieldtype": "Check",
+   "label": "No Material",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -297,7 +315,7 @@
    "link_fieldname": "sale_invoice"
   }
  ],
- "modified": "2024-06-13 16:29:45.286705",
+ "modified": "2024-06-25 10:20:12.788413",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Sale Invoice",

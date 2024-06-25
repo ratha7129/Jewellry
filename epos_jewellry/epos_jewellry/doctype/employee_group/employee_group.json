@@ -21,7 +21,9 @@
   {
    "fieldname": "employee_group_name_en",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Employee Group Name EN",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -84,7 +86,7 @@
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2024-06-03 10:37:27.220441",
+ "modified": "2024-06-25 10:45:07.087137",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Employee Group",

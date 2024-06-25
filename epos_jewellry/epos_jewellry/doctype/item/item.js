@@ -65,7 +65,15 @@ frappe.ui.form.on('Item Material', {
         update_item_material(doc,frm)
 	}
 })
-
+frappe.ui.form.on("Item Stock Location", {
+    qty(frm,cdt,cdn){
+        total_qty = 0
+        frm.doc.item_stock_location.forEach(r => {
+            total_qty += r.qty
+        });
+        frm.set_value("qty",total_qty)
+    }
+})
 function update_item_material(doc,frm){
     doc.total_amount = doc.qty * doc.price
     doc.total_cost = doc.qty * doc.cost

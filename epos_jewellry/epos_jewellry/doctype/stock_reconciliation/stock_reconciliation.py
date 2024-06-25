@@ -9,9 +9,6 @@ class StockReconciliation(Document):
 	def validate(self):
 		self.total_qty_change = sum(a.qty - a.current_qty for a in self.stock_reconciliation_item)
 		self.total_amount_change = sum((a.cost * a.qty) - (a.current_cost * a.current_qty) for a in self.stock_reconciliation_item)
-		for a in self.stock_reconciliation_item:
-			if a.qty < 0:
-				frappe.throw("Item {} quantity can not be smaller than zero".format(a.item_code))
 
 	def on_submit(self):
 		if self.type == "Item":

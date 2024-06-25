@@ -11,14 +11,18 @@
   "item_name_en",
   "item_name_kh",
   "unit",
-  "disabled",
   "column_break_yngn",
   "weight",
   "cost",
   "price",
   "qty",
+  "disabled",
+  "section_break_xgvk",
+  "no_material",
+  "column_break_onyz",
   "allow_discount",
   "section_break_kjdf",
+  "column_break_pamy",
   "item_material",
   "section_break_qnol",
   "note",
@@ -96,6 +100,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.no_material == false",
    "fieldname": "section_break_kjdf",
    "fieldtype": "Section Break"
   },
@@ -103,8 +108,7 @@
    "fieldname": "item_material",
    "fieldtype": "Table",
    "label": "Item Material",
-   "options": "Item Material",
-   "reqd": 1
+   "options": "Item Material"
   },
   {
    "default": "0",
@@ -129,11 +133,29 @@
    "fieldtype": "Table",
    "label": "Stock Location",
    "options": "Item Stock Location"
+  },
+  {
+   "default": "0",
+   "fieldname": "no_material",
+   "fieldtype": "Check",
+   "label": "No Material"
+  },
+  {
+   "fieldname": "section_break_xgvk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_onyz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_pamy",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-13 17:20:21.739453",
+ "modified": "2024-06-25 10:23:36.932984",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Item",

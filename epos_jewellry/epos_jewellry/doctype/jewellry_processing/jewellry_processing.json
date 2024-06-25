@@ -56,7 +56,8 @@
    "default": "Today",
    "fieldname": "posting_date",
    "fieldtype": "Date",
-   "label": "Posting Date"
+   "label": "Posting Date",
+   "reqd": 1
   },
   {
    "fieldname": "naming_series",
@@ -258,7 +259,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-21 09:08:11.536531",
+ "modified": "2024-06-25 10:21:16.081421",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Jewellry Processing",

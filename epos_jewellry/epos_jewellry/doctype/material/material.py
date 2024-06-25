@@ -3,17 +3,13 @@
 
 import frappe
 from frappe.model.document import Document
-
+from epos_jewellry.epos_jewellry.doctype.api import stock_ledger_entry,get_info_by_type
+from datetime import datetime
 
 class Material(Document):
 
 	def on_update(self):
-		for a in self.material_stock_location:
-			doc = frappe.get_doc("Stock Location Material",a.stock_location_item)
-			doc.price = a.price
-			doc.cost = a.cost
-			doc.qty = a.qty
-			doc.save()
+		add_stock_reconciliation(self)
 
 	def before_insert(self):
 		if self.material_code == "" or self.material_code == None:
@@ -62,3 +58,22 @@ class Material(Document):
 		doc = frappe.db.sql("SELECT material_code,stock_location,unit,qty,cost,price,name FROM `tabStock Location Material` WHERE material_code = '{0}'".format(item.name),as_dict=1)
 		if doc:
 			return doc
+		
+def add_stock_reconciliation(self):
+	for item in self.material_stock_location:
+		parent = frappe.new_doc("Stock Reconciliation")
+		parent.posting_date = datetime.today().strftime('%Y-%m-%d')
+		parent.type = "Material"
+		parent.stock_location = item.stock_location
+		parent.append("stock_reconciliation_item",{
+		'item_code' : self.name,
+		'item_name' : self.material_name,
+		'stock_location' : item.stock_location,
+		'unit' : item.unit,
+		'price' : item.price,
+		'cost' : item.cost,
+		'qty' : item.qty,
+		'current_qty': get_info_by_type("Material",self.name,item.stock_location).qty,
+		'current_cost' : get_info_by_type("Material",self.name,item.stock_location).cost})
+		parent.docstatus=1
+		parent.save()

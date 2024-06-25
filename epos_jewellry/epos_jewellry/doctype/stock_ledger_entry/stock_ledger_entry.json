@@ -51,7 +51,7 @@
   },
   {
    "fieldname": "posting_date",
-   "fieldtype": "Datetime",
+   "fieldtype": "Date",
    "label": "Posting Date"
   },
   {
@@ -127,7 +127,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-13 16:20:54.711330",
+ "modified": "2024-06-25 08:53:36.946388",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Stock Ledger Entry",

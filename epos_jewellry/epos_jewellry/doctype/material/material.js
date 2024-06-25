@@ -42,6 +42,7 @@ frappe.ui.form.on("Material", {
                 method: "generate_stock_location_material",
                 doc: frm.doc,
                 callback: function (r) {
+                    frm.reload_doc()
                     frm.refresh_field('item_stock_location')
                  },
             });
@@ -50,3 +51,12 @@ frappe.ui.form.on("Material", {
         frm.fields_dict["material_stock_location"].grid.wrapper.find(".grid-remove-rows").hide();
 	},
 });
+frappe.ui.form.on("Material Stock Location", {
+    qty(frm,cdt,cdn){
+        total_qty = 0
+        frm.doc.material_stock_location.forEach(r => {
+            total_qty += r.qty
+        });
+        frm.set_value("qty",total_qty)
+    }
+})

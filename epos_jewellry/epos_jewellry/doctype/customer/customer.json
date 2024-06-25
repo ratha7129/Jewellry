@@ -24,13 +24,17 @@
   {
    "fieldname": "customer_group",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Customer Group",
-   "options": "Customer Group"
+   "options": "Customer Group",
+   "reqd": 1
   },
   {
    "fieldname": "customer_name_en",
    "fieldtype": "Data",
-   "label": "Customer Name EN"
+   "in_list_view": 1,
+   "label": "Customer Name EN",
+   "reqd": 1
   },
   {
    "fieldname": "customer_name_kh",
@@ -91,7 +95,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-03 10:12:12.458280",
+ "modified": "2024-06-25 10:45:18.725339",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Customer",

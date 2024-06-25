@@ -26,6 +26,11 @@ class Item(Document):
 				
 	def after_insert(self):
 		self.generate_stock_location_item(self)
+	
+	def validate(self):
+		if self.no_material == 0 and len(self.item_material) == 0:
+			frappe.throw("Item require at least 1 material")
+
 
 	@frappe.whitelist()	
 	def generate_stock_location_item(item,a=None):
@@ -71,7 +76,7 @@ def add_stock_reconciliation(self):
 		parent.stock_location = item.stock_location
 		parent.append("stock_reconciliation_item",{
 		'item_code' : self.name,
-		'tem_name' : self.item_name_en,
+		'item_name' : self.item_name_en,
 		'stock_location' : item.stock_location,
 		'unit' : item.unit,
 		'price' : item.price,

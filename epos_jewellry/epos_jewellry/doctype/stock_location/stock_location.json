@@ -12,13 +12,15 @@
   {
    "fieldname": "stock_location_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Stock Location Name",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-13 14:01:07.076270",
+ "modified": "2024-06-25 10:42:58.151315",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Stock Location",

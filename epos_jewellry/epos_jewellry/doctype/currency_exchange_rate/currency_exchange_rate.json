@@ -17,24 +17,33 @@
    "default": "Today",
    "fieldname": "posting_date",
    "fieldtype": "Date",
-   "label": "Posting Date"
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
   },
   {
    "fieldname": "from_currency",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "From Currency",
-   "options": "Currency"
+   "options": "Currency",
+   "reqd": 1
   },
   {
    "fieldname": "to_currency",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "To Currency",
-   "options": "Currency"
+   "options": "Currency",
+   "reqd": 1
   },
   {
    "fieldname": "exchange_rate",
    "fieldtype": "Float",
-   "label": "Exchange Rate"
+   "in_list_view": 1,
+   "label": "Exchange Rate",
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "amended_from",
@@ -50,7 +59,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-04 16:27:21.285923",
+ "modified": "2024-06-25 10:44:06.354590",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Currency Exchange Rate",

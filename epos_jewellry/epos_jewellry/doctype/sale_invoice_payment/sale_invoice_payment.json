@@ -56,14 +56,18 @@
    "default": "Today",
    "fieldname": "posting_date",
    "fieldtype": "Date",
-   "label": "Posting Date"
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
   },
   {
    "default": "Cash Dollar",
    "fieldname": "mode_of_payment",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Mode Of Payment",
-   "options": "Mode Of Payment"
+   "options": "Mode Of Payment",
+   "reqd": 1
   },
   {
    "fetch_from": "mode_of_payment.currency",
@@ -75,7 +79,9 @@
   {
    "fieldname": "input_amount",
    "fieldtype": "Float",
-   "label": "Input Amount"
+   "in_list_view": 1,
+   "label": "Input Amount",
+   "reqd": 1
   },
   {
    "default": "0",
@@ -183,7 +189,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-06 16:47:11.910360",
+ "modified": "2024-06-25 10:43:49.887271",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Sale Invoice Payment",

@@ -13,19 +13,23 @@
   {
    "fieldname": "uom_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "UOM Name",
+   "reqd": 1,
    "unique": 1
   },
   {
    "fieldname": "uom_category",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "UOM category",
-   "options": "UOM Category"
+   "options": "UOM Category",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 14:08:49.201158",
+ "modified": "2024-06-25 10:45:59.093238",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "UOM",

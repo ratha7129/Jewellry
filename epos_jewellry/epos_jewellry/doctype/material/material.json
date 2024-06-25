@@ -23,8 +23,10 @@
   {
    "fieldname": "material_category",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Material Category",
-   "options": "Material Category"
+   "options": "Material Category",
+   "reqd": 1
   },
   {
    "fieldname": "material_code",
@@ -35,7 +37,9 @@
   {
    "fieldname": "material_name",
    "fieldtype": "Data",
-   "label": "Material Name"
+   "in_list_view": 1,
+   "label": "Material Name",
+   "reqd": 1
   },
   {
    "fieldname": "price",
@@ -85,7 +89,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-13 17:20:45.097241",
+ "modified": "2024-06-25 10:41:56.285272",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Material",

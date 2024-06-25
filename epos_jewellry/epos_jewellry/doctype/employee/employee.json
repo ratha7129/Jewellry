@@ -28,7 +28,9 @@
   {
    "fieldname": "employee_name_en",
    "fieldtype": "Data",
-   "label": "Employee Name EN"
+   "in_list_view": 1,
+   "label": "Employee Name EN",
+   "reqd": 1
   },
   {
    "fieldname": "employee_name_kh",
@@ -72,13 +74,15 @@
   {
    "fieldname": "employee_group",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Employee Group",
-   "options": "Employee Group"
+   "options": "Employee Group",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-03 10:38:50.172610",
+ "modified": "2024-06-25 10:44:18.609548",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Employee",
