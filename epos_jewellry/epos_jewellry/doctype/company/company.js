@@ -6,40 +6,34 @@ frappe.ui.form.on("Company", {
         if (frappe.user.has_role('System Manager')) {
             if (frm.has_perm('write')) {
                 frm.add_custom_button(__('Reset Database'), function() {
-                    frm.trigger("reset_database");
+                    frappe.verify_password(function(){
+                        frappe.call({
+                            method: "epos_jewellry.epos_jewellry.doctype.company.company.reset_database",
+                            freeze: true,
+                            callback: function(r, rt) {
+                                if(!r.exc)
+                                    frappe.msgprint(__("Successfully Reset Database"));
+                            },
+                        });
+                    });
                 }, __('Action'));
             }
         }
         if (frappe.user.has_role('System Manager')) {
             if (frm.has_perm('write')) {
                 frm.add_custom_button(__('Delete Transactions'), function() {
-                    frm.trigger("delete_transactions");
+                    frappe.verify_password(function() {
+                        frappe.call({
+                            method: "epos_jewellry.epos_jewellry.doctype.company.company.delete_transactions",
+                            freeze: true,
+                            callback: function(r, rt) {
+                                if(!r.exc)
+                                    frappe.msgprint(__("Successfully Feleted All Transactions"));
+                            },
+                        });
+                    });
                 }, __('Action'));
             }
         }
-	},
-    reset_database: function(frm) {
-		frappe.verify_password(function() {
-        frappe.call({
-            method: "reset_database",
-            doc:frm.doc,
-            freeze: true,
-            callback: function(r, rt) {
-                if(!r.exc)
-                    frappe.msgprint(__("Successfully reset database"));
-            },
-        });
-    })},
-    delete_transactions: function(frm) {
-		frappe.verify_password(function() {
-        frappe.call({
-            method: "delete_transactions",
-            doc:frm.doc,
-            freeze: true,
-            callback: function(r, rt) {
-                if(!r.exc)
-                    frappe.msgprint(__("Successfully deleted all transactions"));
-            },
-        });
-    })}
+	}
 })
