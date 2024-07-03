@@ -12,7 +12,7 @@ frappe.ui.form.on("Company", {
                             freeze: true,
                             callback: function(r, rt) {
                                 if(!r.exc)
-                                    frappe.msgprint(__("Successfully Reset Database"));
+                                    frappe.msgprint(__("Successfully Reset atabase"));
                             },
                         });
                     });

@@ -25,6 +25,9 @@ frappe.ui.form.on("Item", {
                     frm.refresh_field('item_stock_location')
                 }
                 frm.set_value("qty",total_qty)
+                if (!frm.is_new()){
+                    frm.save()
+                }
             },
             async: true,
         });

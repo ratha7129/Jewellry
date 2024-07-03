@@ -61,19 +61,23 @@ class Material(Document):
 		
 def add_stock_reconciliation(self):
 	for item in self.material_stock_location:
-		parent = frappe.new_doc("Stock Reconciliation")
-		parent.posting_date = datetime.today().strftime('%Y-%m-%d')
-		parent.type = "Material"
-		parent.stock_location = item.stock_location
-		parent.append("stock_reconciliation_item",{
-		'item_code' : self.name,
-		'item_name' : self.material_name,
-		'stock_location' : item.stock_location,
-		'unit' : item.unit,
-		'price' : item.price,
-		'cost' : item.cost,
-		'qty' : item.qty,
-		'current_qty': get_info_by_type("Material",self.name,item.stock_location).qty,
-		'current_cost' : get_info_by_type("Material",self.name,item.stock_location).cost})
-		parent.docstatus=1
-		parent.save()
+		current_qty = get_info_by_type("Material",self.name,item.stock_location).qty
+		current_cost = get_info_by_type("Material",self.name,item.stock_location).cost
+		current_price = get_info_by_type("Material",self.name,item.stock_location).price
+		if current_qty != item.qty or current_cost != item.cost or current_price != item.price:
+			parent = frappe.new_doc("Stock Reconciliation")
+			parent.posting_date = datetime.today().strftime('%Y-%m-%d')
+			parent.type = "Material"
+			parent.stock_location = item.stock_location
+			parent.append("stock_reconciliation_item",{
+			'item_code' : self.name,
+			'item_name' : self.material_name,
+			'stock_location' : item.stock_location,
+			'unit' : item.unit,
+			'price' : item.price,
+			'cost' : item.cost,
+			'qty' : item.qty,
+			'current_qty': get_info_by_type("Material",self.name,item.stock_location).qty,
+			'current_cost' : get_info_by_type("Material",self.name,item.stock_location).cost})
+			parent.docstatus=1
+			parent.save()
