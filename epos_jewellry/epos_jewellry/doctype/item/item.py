@@ -3,7 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
-from epos_jewellry.epos_jewellry.doctype.api import stock_ledger_entry,get_info_by_type
+from epos_jewellry.epos_jewellry.doctype.api import generate_stock_location_item,get_info_by_type
 from datetime import datetime
 
 class Item(Document):
@@ -25,42 +25,11 @@ class Item(Document):
 				item_category.save()
 				
 	def after_insert(self):
-		self.generate_stock_location_item(self)
+		generate_stock_location_item(self)
 	
 	def validate(self):
 		if self.no_material == 0 and len(self.item_material) == 0:
 			frappe.throw("Item require at least 1 material")
-
-
-	@frappe.whitelist()	
-	def generate_stock_location_item(item,a=None):
-		current_stock_location_item = frappe.db.sql("select stock_location from `tabStock Location Item` where item_code='{}'".format(item.name),as_dict=1)
-		stock_location = frappe.db.sql("select name from `tabStock Location`",as_dict=1)
-		if len(current_stock_location_item) == len(stock_location):
-			frappe.throw("Stock Location Item Already Created")
-		elif len(current_stock_location_item)<len(stock_location) and len(current_stock_location_item)>0:
-			for a in stock_location:
-				if not any(a.name in x.stock_location  for x in current_stock_location_item):
-					doc = frappe.new_doc("Stock Location Item")
-					doc.item_code = item.name
-					doc.item_name = item.item_name_en
-					doc.stock_location = a.name
-					doc.unit = item.unit
-					doc.price = item.price
-					doc.cost = item.cost
-					doc.qty = 0
-					doc.save()
-		else:
-			for a in stock_location:
-				doc = frappe.new_doc("Stock Location Item")
-				doc.item_code = item.name
-				doc.item_name = item.item_name_en
-				doc.stock_location = a.name
-				doc.unit = item.unit
-				doc.price = item.price
-				doc.cost = item.cost
-				doc.qty = 0
-				doc.save()
 	
 	@frappe.whitelist()
 	def get_stock_location_item(item):

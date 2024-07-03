@@ -3,7 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
-from epos_jewellry.epos_jewellry.doctype.api import stock_ledger_entry,get_info_by_type
+from epos_jewellry.epos_jewellry.doctype.api import generate_stock_location_material,get_info_by_type
 from datetime import datetime
 
 class Material(Document):
@@ -20,38 +20,7 @@ class Material(Document):
 				material_category.save()
 
 	def after_insert(self):
-		self.generate_stock_location_material(self)
-
-
-	@frappe.whitelist()	
-	def generate_stock_location_material(item,a=None):
-		current_stock_location_material = frappe.db.sql("select stock_location from `tabStock Location Material` where material_code='{}'".format(item.name),as_dict=1)
-		stock_location = frappe.db.sql("select name from `tabStock Location`",as_dict=1)
-		if len(current_stock_location_material) == len(stock_location):
-			frappe.throw("Stock Location Material Already Created")
-		elif len(current_stock_location_material)<len(stock_location):
-			for a in stock_location:
-				if not any(a.name in x.stock_location  for x in current_stock_location_material):
-					doc = frappe.new_doc("Stock Location Material")
-					doc.material_code = item.name
-					doc.material_name = item.material_name
-					doc.stock_location = a.name
-					doc.unit = item.unit
-					doc.price = item.price
-					doc.cost = item.cost
-					doc.qty = 0
-					doc.save()
-		else:
-			for a in stock_location:
-				doc = frappe.new_doc("Stock Location Material")
-				doc.material_code = item.name
-				doc.material_name = item.material_name
-				doc.stock_location = a.name
-				doc.unit = item.unit
-				doc.price = item.price
-				doc.cost = item.cost
-				doc.qty = 0
-				doc.save()
+		generate_stock_location_material(self)
 
 	@frappe.whitelist()
 	def get_stock_location_material(item):

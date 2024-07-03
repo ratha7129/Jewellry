@@ -1,5 +1,6 @@
 import frappe
 from frappe.model.document import Document
+import json
 
 @frappe.whitelist()
 def get_item_material(item_code):
@@ -29,60 +30,66 @@ def get_info_by_type(type,name,stock_location):
 
 @frappe.whitelist()	
 def generate_stock_location_item(item):
-    current_stock_location_item = frappe.db.sql("select stock_location from `tabStock Location Item` where item_code='{}'".format(item.name),as_dict=1)
+    item = json.loads(item)
+    current_stock_location_item = frappe.db.sql("select stock_location from `tabStock Location Item` where item_code='{}'".format(item["name"]),as_dict=1)
     stock_location = frappe.db.sql("select name from `tabStock Location`",as_dict=1)
     if len(current_stock_location_item) == len(stock_location):
-        frappe.throw("Stock Location Item Already Created")
+        frappe.msgprint("Item {0} Stock Location Item Already Created".format(item["name"]))
     elif len(current_stock_location_item)<len(stock_location) and len(current_stock_location_item)>0:
         for a in stock_location:
             if not any(a.name in x.stock_location  for x in current_stock_location_item):
                 doc = frappe.new_doc("Stock Location Item")
-                doc.item_code = item.name
-                doc.item_name = item.item_name_en
+                doc.item_code = item["name"]
+                doc.item_name = item["item_name_en"]
                 doc.stock_location = a.name
-                doc.unit = item.unit
-                doc.price = item.price
-                doc.cost = item.cost
+                doc.unit = item["unit"]
+                doc.price = item["price"]
+                doc.cost = item["cost"]
                 doc.qty = 0
                 doc.save()
+                frappe.msgprint("New Stock Location Item Created")
     else:
         for a in stock_location:
             doc = frappe.new_doc("Stock Location Item")
-            doc.item_code = item.name
-            doc.item_name = item.item_name_en
+            doc.item_code = item["name"]
+            doc.item_name = item["item_name_en"]
             doc.stock_location = a.name
-            doc.unit = item.unit
-            doc.price = item.price
-            doc.cost = item.cost
+            doc.unit = item["unit"]
+            doc.price = item["price"]
+            doc.cost = item["cost"]
             doc.qty = 0
             doc.save()
+            frappe.msgprint("New Stock Location Item Created")
 
 @frappe.whitelist()
-def generate_stock_location_material(item):
-    current_stock_location_material = frappe.db.sql("select stock_location from `tabStock Location Material` where material_code='{}'".format(item.name),as_dict=1)
+def generate_stock_location_material(item=[]):
+    item = json.loads(item)
+    current_stock_location_material = frappe.db.sql("select stock_location from `tabStock Location Material` where material_code='{}'".format(item["name"]),as_dict=1)
     stock_location = frappe.db.sql("select name from `tabStock Location`",as_dict=1)
     if len(current_stock_location_material) == len(stock_location):
-        frappe.throw("Stock Location Material Already Created")
+        frappe.msgprint("Material {0} Stock Location Material Already Created".format(item["name"]))
     elif len(current_stock_location_material)<len(stock_location):
         for a in stock_location:
             if not any(a.name in x.stock_location  for x in current_stock_location_material):
                 doc = frappe.new_doc("Stock Location Material")
-                doc.material_code = item.name
-                doc.material_name = item.material_name
+                doc.material_code = item["name"]
+                doc.material_name = item["material_name"]
                 doc.stock_location = a.name
-                doc.unit = item.unit
-                doc.price = item.price
-                doc.cost = item.cost
+                doc.unit = item["unit"]
+                doc.price = item["price"]
+                doc.cost = item["cost"]
                 doc.qty = 0
                 doc.save()
+                frappe.msgprint("New Stock Location Material Created")
     else:
         for a in stock_location:
             doc = frappe.new_doc("Stock Location Material")
-            doc.material_code = item.name
-            doc.material_name = item.material_name
+            doc.material_code = item["name"]
+            doc.material_name = item["material_name"]
             doc.stock_location = a.name
-            doc.unit = item.unit
-            doc.price = item.price
-            doc.cost = item.cost
+            doc.unit = item["unit"]
+            doc.price = item["price"]
+            doc.cost = item["cost"]
             doc.qty = 0
             doc.save()
+            frappe.msgprint("New Stock Location Material Created")

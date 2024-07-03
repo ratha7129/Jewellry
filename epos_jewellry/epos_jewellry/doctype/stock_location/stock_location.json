@@ -6,7 +6,8 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "stock_location_name"
+  "stock_location_name",
+  "disabled"
  ],
  "fields": [
   {
@@ -16,11 +17,17 @@
    "label": "Stock Location Name",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-25 10:42:58.151315",
+ "modified": "2024-07-03 13:46:03.360805",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "Stock Location",

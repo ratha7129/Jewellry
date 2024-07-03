@@ -42,11 +42,16 @@ frappe.ui.form.on("Item", {
         });
         frm.add_custom_button(__('Generate Stock Location Item'), function(){
             frappe.call({
-                method: "generate_stock_location_item",
-                doc: frm.doc,
+                method: "epos_jewellry.epos_jewellry.doctype.api.generate_stock_location_item",
+                args: {
+                    item: frm.doc
+                },
                 callback: function (r) {
                     frm.refresh_field('item_stock_location')
-                 },
+                },
+                error: function (r) {
+                    frappe.throw(_("Load data fail."))
+                },
             });
         }, __("Action"));
         frm.get_field("item_stock_location").grid.cannot_add_rows = true;
