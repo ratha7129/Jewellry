@@ -5,6 +5,7 @@ import frappe
 from frappe.model.document import Document
 from epos_jewellry.epos_jewellry.doctype.api import generate_stock_location_material,get_info_by_type
 from datetime import datetime
+import json
 
 class Material(Document):
 
@@ -20,11 +21,13 @@ class Material(Document):
 				material_category.save()
 
 	def after_insert(self):
-		generate_stock_location_material(self)
+		docs = frappe.db.sql("select name,material_name,unit,price,cost from `tabMaterial` where name = '{0}'".format(self.name),as_dict=1)
+		generate_stock_location_material(json.dumps(docs[0]))
+		self.reload()
 
 	@frappe.whitelist()
 	def get_stock_location_material(item):
-		doc = frappe.db.sql("SELECT material_code,stock_location,unit,qty,cost,price,name FROM `tabStock Location Material` WHERE material_code = '{0}'".format(item.name),as_dict=1)
+		doc = frappe.db.sql("SELECT material_code,stock_location,unit,qty,cost,price,name FROM `tabStock Location Material` WHERE material_code = '{0}' order by stock_location".format(item.name),as_dict=1)
 		if doc:
 			return doc
 		

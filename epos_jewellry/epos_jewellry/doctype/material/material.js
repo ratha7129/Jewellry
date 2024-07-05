@@ -2,35 +2,40 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Material", {
-    onload_post_render: function(frm) {
-        frm.set_value('material_stock_location', []);
-        frm.refresh_field('material_stock_location');
-        frm.call({
-            method: 'get_stock_location_material',
-            doc:frm.doc,
-            callback:function(r){
-                total_qty = 0
-                if(r.message){
-                    r.message.forEach(p => {
-                        total_qty += p.qty
-                        frm.add_child('material_stock_location', {
-                            stock_location : p.stock_location,
-                            unit : p.unit,
-                            price : p.price,
-                            cost : p.cost,
-                            qty : p.qty,
-                            stock_location_item : p.name
+    onload: function(frm) {
+        if (frm.is_new() && frm.doc.material_code != ""){
+            frm.doc.material_code = ""
+        }
+        if(!frm.is_new()){
+            frm.set_value('material_stock_location', []);
+            frm.refresh_field('material_stock_location');
+            frm.call({
+                method: 'get_stock_location_material',
+                doc:frm.doc,
+                callback:function(r){
+                    total_qty = 0
+                    if(r.message){
+                        r.message.forEach(p => {
+                            total_qty += p.qty
+                            frm.add_child('material_stock_location', {
+                                stock_location : p.stock_location,
+                                unit : p.unit,
+                                price : p.price,
+                                cost : p.cost,
+                                qty : p.qty,
+                                stock_location_item : p.name
+                            });
                         });
-                    });
-                    frm.refresh_field('material_stock_location')
-                }
-                frm.set_value("qty",total_qty)
-                if (!frm.is_new()){
-                    frm.save()
-                }
-            },
-            async: true,
-        });
+                        frm.refresh_field('material_stock_location')
+                    }
+                    frm.set_value("qty",total_qty)
+                    if (!frm.is_new()){
+                        frm.save()
+                    }
+                },
+                async: true,
+            });
+        }
     },
 	refresh(frm) {
         frm.set_query('material_category', () => {

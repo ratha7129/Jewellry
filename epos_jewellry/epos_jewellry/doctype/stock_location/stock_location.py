@@ -24,15 +24,16 @@ class StockLocation(Document):
 			frappe.msgprint("Update In Background")
 		else:
 			queue_generate_stock_location_material()
+		frappe.msgprint("New Stock Location Items And Materials Created")
 
 @frappe.whitelist(allow_guest=1)
 def queue_generate_stock_location_item():
 	docs = frappe.db.sql("select name,item_name_en,unit,price,cost from `tabItem` where disabled = 0",as_dict=1)
 	for a in docs:
-		generate_stock_location_item(json.dumps(a))
+		generate_stock_location_item(json.dumps(a),1)
 
 @frappe.whitelist(allow_guest=1)
 def queue_generate_stock_location_material():
 	docs = frappe.db.sql("select name,material_name,unit,price,cost from `tabMaterial` where disabled = 0",as_dict=1)
 	for a in docs:
-		generate_stock_location_material(json.dumps(a))
+		generate_stock_location_material(json.dumps(a),1)

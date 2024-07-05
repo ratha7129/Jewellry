@@ -29,11 +29,11 @@ def get_info_by_type(type,name,stock_location):
     return doc[0] or ""
 
 @frappe.whitelist()	
-def generate_stock_location_item(item):
+def generate_stock_location_item(item,is_bulk=0):
     item = json.loads(item)
     current_stock_location_item = frappe.db.sql("select stock_location from `tabStock Location Item` where item_code='{}'".format(item["name"]),as_dict=1)
     stock_location = frappe.db.sql("select name from `tabStock Location`",as_dict=1)
-    if len(current_stock_location_item) == len(stock_location):
+    if len(current_stock_location_item) == len(stock_location) and is_bulk == 0:
         frappe.msgprint("Item {0} Stock Location Item Already Created".format(item["name"]))
     elif len(current_stock_location_item)<len(stock_location) and len(current_stock_location_item)>0:
         for a in stock_location:
@@ -47,7 +47,8 @@ def generate_stock_location_item(item):
                 doc.cost = item["cost"]
                 doc.qty = 0
                 doc.save()
-                frappe.msgprint("New Stock Location Item Created")
+        if is_bulk == 0:
+            frappe.msgprint("New Stock Location Item Created")
     else:
         for a in stock_location:
             doc = frappe.new_doc("Stock Location Item")
@@ -59,14 +60,15 @@ def generate_stock_location_item(item):
             doc.cost = item["cost"]
             doc.qty = 0
             doc.save()
+        if is_bulk == 0:
             frappe.msgprint("New Stock Location Item Created")
 
 @frappe.whitelist()
-def generate_stock_location_material(item=[]):
+def generate_stock_location_material(item,is_bulk=0):
     item = json.loads(item)
     current_stock_location_material = frappe.db.sql("select stock_location from `tabStock Location Material` where material_code='{}'".format(item["name"]),as_dict=1)
     stock_location = frappe.db.sql("select name from `tabStock Location`",as_dict=1)
-    if len(current_stock_location_material) == len(stock_location):
+    if len(current_stock_location_material) == len(stock_location) and is_bulk == 0:
         frappe.msgprint("Material {0} Stock Location Material Already Created".format(item["name"]))
     elif len(current_stock_location_material)<len(stock_location):
         for a in stock_location:
@@ -80,7 +82,8 @@ def generate_stock_location_material(item=[]):
                 doc.cost = item["cost"]
                 doc.qty = 0
                 doc.save()
-                frappe.msgprint("New Stock Location Material Created")
+        if is_bulk == 0:
+            frappe.msgprint("New Stock Location Material Created")
     else:
         for a in stock_location:
             doc = frappe.new_doc("Stock Location Material")
@@ -92,4 +95,5 @@ def generate_stock_location_material(item=[]):
             doc.cost = item["cost"]
             doc.qty = 0
             doc.save()
-            frappe.msgprint("New Stock Location Material Created")
+        if is_bulk == 0:
+                frappe.msgprint("New Stock Location Material Created")
