@@ -66,6 +66,7 @@ def get_name_by_type(type,name):
 
 
 def add_item_stock_ledger_entry(self,item,stock_entry_type,stock_location):
+	current = get_info_by_type("Item",item.item_code,stock_location)
 	if self.docstatus == 1:
 		stock_ledger_entry({
 					'doctype': 'Stock Ledger Entry',
@@ -77,9 +78,9 @@ def add_item_stock_ledger_entry(self,item,stock_entry_type,stock_location):
 					'unit':item.unit,
 					'price':item.price,
 					'cost':item.cost,
-					'current_qty': get_info_by_type("Item",item.item_code,stock_location).qty,
+					'current_qty': current.qty,
 					'qty_change': item.qty if stock_entry_type == "Stock In" else item.qty * -1,
-					'qty_after_transaction': get_info_by_type("Item",item.item_code,stock_location).qty + (item.qty if stock_entry_type == "Stock In" else item.qty * -1),
+					'qty_after_transaction': current.qty + (item.qty if stock_entry_type == "Stock In" else item.qty * -1),
 					'stock_location': stock_location,
 					'note':"New Stock Entry {0} Type {1}".format(self.name,stock_entry_type)
 				})
@@ -94,15 +95,16 @@ def add_item_stock_ledger_entry(self,item,stock_entry_type,stock_location):
 					'unit':item.unit,
 					'price':item.price,
 					'cost':item.cost,
-					'current_qty': get_info_by_type("Item",item.item_code,stock_location).qty,
+					'current_qty': current.qty,
 					'qty_change':item.qty*-1 if stock_entry_type == "Stock In" else item.qty,
-					'qty_after_transaction': get_info_by_type("Item",item.item_code,stock_location).qty + (item.qty*-1 if stock_entry_type == "Stock In" else item.qty),
+					'qty_after_transaction': current.qty + (item.qty*-1 if stock_entry_type == "Stock In" else item.qty),
 					'stock_location': stock_location,
 					'note':"Cancelled Stock Entry {0} Type {1}".format(self.name,stock_entry_type)
 				})
 
 
 def add_material_stock_ledger_entry(self,item,stock_entry_type,stock_location):
+	current = get_info_by_type("Material",item.item_code,stock_location)
 	if self.docstatus == 1:
 		stock_ledger_entry({
 					'doctype': 'Stock Ledger Entry',
@@ -114,9 +116,9 @@ def add_material_stock_ledger_entry(self,item,stock_entry_type,stock_location):
 					'unit': item.unit,
 					'price': item.price,
 					'cost': item.cost,
-					'current_qty': get_info_by_type("Material",item.item_code,stock_location).qty,
+					'current_qty': current.qty,
 					'qty_change': item.qty if stock_entry_type == "Stock In" else item.qty*-1,
-					'qty_after_transaction': get_info_by_type("Material",item.item_code,stock_location).qty + (item.qty if stock_entry_type == "Stock In" else item.qty*-1),
+					'qty_after_transaction': current.qty + (item.qty if stock_entry_type == "Stock In" else item.qty*-1),
 					'stock_location': stock_location,
 					'note':"New Stock Entry {0} Type {1}".format(self.name,stock_entry_type)
 				})
@@ -131,9 +133,9 @@ def add_material_stock_ledger_entry(self,item,stock_entry_type,stock_location):
 					'unit':item.unit,
 					'price':item.price,
 					'cost':item.cost,
-					'current_qty': get_info_by_type("Material",item.item_code,stock_location).qty,
+					'current_qty': current.qty,
 					'qty_change': item.qty*-1 if stock_entry_type == "Stock In" else item.qty,
-					'qty_after_transaction': get_info_by_type("Material",item.item_code,stock_location).qty + (item.qty*-1 if stock_entry_type == "Stock In" else item.qty),
+					'qty_after_transaction': current.qty + (item.qty*-1 if stock_entry_type == "Stock In" else item.qty),
 					'stock_location': stock_location,
 					'note':"Cancelled Stock Entry {0} Type {1}".format(self.name,stock_entry_type)
 				})

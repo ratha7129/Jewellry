@@ -42,10 +42,8 @@ class Item(Document):
 
 def add_stock_reconciliation(self):
 	for item in self.item_stock_location:
-		current_qty = get_info_by_type("Item",self.name,item.stock_location).qty
-		current_cost = get_info_by_type("Item",self.name,item.stock_location).cost
-		current_price = get_info_by_type("Item",self.name,item.stock_location).price
-		if current_qty != item.qty or current_cost != item.cost or current_price != item.price:
+		current = get_info_by_type("Item",self.name,item.stock_location)
+		if current.qty != item.qty or current.cost != item.cost or current.price != item.price:
 			parent = frappe.new_doc("Stock Reconciliation")
 			parent.posting_date = datetime.today().strftime('%Y-%m-%d')
 			parent.type = "Item"
@@ -58,7 +56,7 @@ def add_stock_reconciliation(self):
 			'price' : item.price,
 			'cost' : item.cost,
 			'qty' : item.qty,
-			'current_qty': current_qty,
-			'current_cost' : current_cost})
+			'current_qty': current.qty,
+			'current_cost' : current.cost})
 			parent.docstatus = 1
 			parent.save()

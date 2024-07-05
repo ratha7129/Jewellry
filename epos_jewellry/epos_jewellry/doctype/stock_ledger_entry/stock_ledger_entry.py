@@ -13,7 +13,7 @@ class StockLedgerEntry(Document):
 			update_qty(self)
 			update_cost_and_price(self)
 		else:
-			if get_info_by_type(self.ledger_type,self.item_code,self.stock_location)<=0:
+			if get_info_by_type(self.ledger_type,self.item_code,self.stock_location).qty<=0:
 				frappe.throw("Item <b>{0}</b> require <b>{1} {2}</b> to complete this transaction".format(self.item_code,abs(self.qty_change),self.unit))
 			else:
 				update_qty(self)

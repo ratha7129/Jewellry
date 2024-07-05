@@ -44,6 +44,7 @@ class SaleInvoice(Document):
 
 
 def add_item_stock_ledger_entry(self):
+	current = get_info_by_type("Item",self.item,self.stock_location)
 	if self.docstatus == 1:
 		stock_ledger_entry({
 					'doctype': 'Stock Ledger Entry',
@@ -55,9 +56,9 @@ def add_item_stock_ledger_entry(self):
 					'unit':self.unit,
 					'price':self.price,
 					'cost':self.cost,
-					'current_qty': get_info_by_type("Item",self.item,self.stock_location).qty,
+					'current_qty': current.qty,
 					'qty_change':-1,
-					'qty_after_transaction': get_info_by_type("Item",self.item,self.stock_location).qty-1,
+					'qty_after_transaction': current.qty - 1,
 					'stock_location':self.stock_location,
 					'note':"New Sale Invoice {}".format(self.name)
 				})
@@ -72,15 +73,16 @@ def add_item_stock_ledger_entry(self):
 					'unit':self.unit,
 					'price':self.price,
 					'cost':self.cost,
-					'current_qty': get_info_by_type("Item",self.item,self.stock_location).qty,
+					'current_qty': current.qty,
 					'qty_change':1,
-					'qty_after_transaction': get_info_by_type("Item",self.item,self.stock_location).qty+1,
+					'qty_after_transaction': current.qty+1,
 					'stock_location':self.stock_location,
 					'note':"Cancelled Sale Invoice {}".format(self.name)
 				})
 
 
 def add_material_stock_ledger_entry(self,material):
+	current = get_info_by_type("Material",material.material_code,self.stock_location)
 	if self.docstatus == 1:
 		stock_ledger_entry({
 					'doctype': 'Stock Ledger Entry',
@@ -92,9 +94,9 @@ def add_material_stock_ledger_entry(self,material):
 					'unit': material.unit,
 					'price': material.price,
 					'cost': material.cost,
-					'current_qty': get_info_by_type("Material",material.material_code,self.stock_location).qty,
+					'current_qty': current.qty,
 					'qty_change':material.qty*-1,
-					'qty_after_transaction': get_info_by_type("Material",material.material_code,self.stock_location).qty + (material.qty*-1),
+					'qty_after_transaction': current.qty + (material.qty*-1),
 					'stock_location':self.stock_location,
 					'note':"New Sale Invoice {}".format(self.name)
 				})
@@ -109,9 +111,9 @@ def add_material_stock_ledger_entry(self,material):
 					'unit':material.unit,
 					'price':material.price,
 					'cost':material.cost,
-					'current_qty': get_info_by_type("Material",material.material_code,self.stock_location).qty,
+					'current_qty': current.qty,
 					'qty_change':material.qty,
-					'qty_after_transaction': get_info_by_type("Material",material.material_code,self.stock_location).qty + material.qty,
+					'qty_after_transaction': current.qty + material.qty,
 					'stock_location':self.stock_location,
 					'note':"Cancelled Sale Invoice {}".format(self.name)
 				})

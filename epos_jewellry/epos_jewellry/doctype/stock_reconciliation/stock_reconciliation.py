@@ -27,6 +27,7 @@ class StockReconciliation(Document):
 				add_material_stock_ledger_entry(self,a)
 
 def add_item_stock_ledger_entry(self,item):
+		current = get_info_by_type("Item",item.item_code,self.stock_location)
 		stock_ledger_entry({
 					'doctype': 'Stock Ledger Entry',
 					'voucher_type':"Stock Reconciliation",
@@ -37,14 +38,15 @@ def add_item_stock_ledger_entry(self,item):
 					'unit':item.unit,
 					'price':item.price,
 					'cost':item.cost,
-					'current_qty': get_info_by_type("Item",item.item_code,self.stock_location).qty,
-					'qty_change': item.qty - get_info_by_type("Item",item.item_code,self.stock_location).qty,
+					'current_qty': current.qty,
+					'qty_change': item.qty - current.qty,
 					'qty_after_transaction': item.qty,
 					'stock_location': self.stock_location,
 					'note':"New Stock Reconciliation {0}".format(self.name)
 				})
 
 def add_material_stock_ledger_entry(self,item):
+		current = get_info_by_type("Material",item.item_code,self.stock_location)
 		stock_ledger_entry({
 					'doctype': 'Stock Ledger Entry',
 					'voucher_type':"Stock Reconciliation",
@@ -55,8 +57,8 @@ def add_material_stock_ledger_entry(self,item):
 					'unit': item.unit,
 					'price': item.price,
 					'cost': item.cost,
-					'current_qty': get_info_by_type("Material",item.item_code,self.stock_location).qty,
-					'qty_change': item.qty - get_info_by_type("Material",item.item_code,self.stock_location).qty,
+					'current_qty': current.qty,
+					'qty_change': item.qty - current.qty,
 					'qty_after_transaction': item.qty,
 					'stock_location': self.stock_location,
 					'note':"New Stock Reconciliation {0}".format(self.name)
