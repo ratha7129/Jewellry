@@ -8,6 +8,7 @@
   "ftp_backup_path",
   "ftp_user",
   "ftp_password",
+  "backup_type",
   "column_break_nyco",
   "ftp_url",
   "ftp_delete_after",
@@ -47,12 +48,18 @@
    "fieldname": "ftp_delete_after",
    "fieldtype": "Int",
    "label": "Delete After"
+  },
+  {
+   "fieldname": "backup_type",
+   "fieldtype": "Select",
+   "label": "Backup Type",
+   "options": "Simple\nFull"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-06-14 16:58:00.442270",
+ "modified": "2024-07-17 09:41:48.631543",
  "modified_by": "Administrator",
  "module": "epos_jewellry",
  "name": "FTP Setting",
